@@ -1,0 +1,30 @@
+brand:
+  text: GeoData Training
+about:
+  text: This training guide for trainers of the OKF x Facebook GeoData Training Programme
+github:
+  user: frictionlessdata
+  repo: geodata-training
+topics:
+  selector: h2
+site:
+  favicon: assets/favicon.ico
+  styles:
+    - style.css
+pages:
+  items:
+    - path: index
+      name: Introduction
+    - path: pages/before
+    - path: pages/during
+    - path: pages/mentoring
+    - path: pages/completing
+    - path: pages/examples
+links:
+  items:
+    - name: School of Data
+      path: https://schoolofdata.org/
+    - name: Frictionless
+      path: https://frictionlessdata.io
+    - name: Livemark
+      path: https://livemark.frictionlessdata.io

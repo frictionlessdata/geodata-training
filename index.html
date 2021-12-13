@@ -1,0 +1,2577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="This training guide for trainers of the OKF x Facebook GeoData Training Programme is a useful resource that records the lessons learned from previous training sessions and provides best practice approaches to the planning, implementation, and monitoring of the training programme.">
+<meta name="keywords" content="geodata,training,programme">
+<link rel="icon" href="assets/favicon.ico">
+<title>GeoData Training Programme | GeoData Training</title>
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/prismjs@1.23.0/themes/prism.css">
+<style>
+
+/* Base */
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #222;
+  text-align: left;
+  background-color: #fff;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+a:hover {
+	color: #0056b3;
+	text-decoration: underline;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Main */
+
+#livemark-main {
+  padding: 24px 20px;
+  min-height: 100vh;
+}
+
+#livemark-main h1 {
+  margin-top: 4px !important;
+  padding-bottom: 12px !important;
+}
+
+#livemark-main h1 a.heading,
+#livemark-main h2 a.heading,
+#livemark-main h3 a.heading,
+#livemark-main h4 a.heading,
+#livemark-main h5 a.heading,
+#livemark-main h6 a.heading {
+  display: none;
+}
+
+#livemark-main h2:hover a.heading,
+#livemark-main h3:hover a.heading,
+#livemark-main h4:hover a.heading,
+#livemark-main h5:hover a.heading,
+#livemark-main h6:hover a.heading {
+  display: inline;
+  margin-left: 8px;
+  color: #aaa;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#livemark-main h2 a.heading:hover,
+#livemark-main h3 a.heading:hover,
+#livemark-main h4 a.heading:hover,
+#livemark-main h5 a.heading:hover,
+#livemark-main h6 a.heading:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+  #livemark-main {
+    margin-left: 300px;
+    border-left: dashed 1px #ccc;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #livemark-main {
+    margin-right: 300px;
+    border-right: dashed 1px #ccc;
+  }
+}
+
+#livemark-main .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+#livemark-main .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+#livemark-main .anchor:focus {
+  outline: none;
+}
+
+#livemark-main h1 .octicon-link,
+#livemark-main h2 .octicon-link,
+#livemark-main h3 .octicon-link,
+#livemark-main h4 .octicon-link,
+#livemark-main h5 .octicon-link,
+#livemark-main h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+#livemark-main h1:hover .anchor,
+#livemark-main h2:hover .anchor,
+#livemark-main h3:hover .anchor,
+#livemark-main h4:hover .anchor,
+#livemark-main h5:hover .anchor,
+#livemark-main h6:hover .anchor {
+  text-decoration: none;
+}
+
+#livemark-main h1:hover .anchor .octicon-link,
+#livemark-main h2:hover .anchor .octicon-link,
+#livemark-main h3:hover .anchor .octicon-link,
+#livemark-main h4:hover .anchor .octicon-link,
+#livemark-main h5:hover .anchor .octicon-link,
+#livemark-main h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+#livemark-main h1:hover .anchor .octicon-link:before,
+#livemark-main h2:hover .anchor .octicon-link:before,
+#livemark-main h3:hover .anchor .octicon-link:before,
+#livemark-main h4:hover .anchor .octicon-link:before,
+#livemark-main h5:hover .anchor .octicon-link:before,
+#livemark-main h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+#livemark-main {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #222;
+  font-family: system-ui, -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+#livemark-main details {
+  display: block;
+}
+
+#livemark-main summary {
+  display: list-item;
+}
+
+#livemark-main a {
+  background-color: initial;
+}
+
+#livemark-main a:active,
+#livemark-main a:hover {
+  outline-width: 0;
+}
+
+#livemark-main strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+#livemark-main h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+#livemark-main img {
+  border-style: none;
+}
+
+#livemark-main code,
+#livemark-main kbd,
+#livemark-main pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+#livemark-main hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+#livemark-main input {
+  font: inherit;
+  margin: 0;
+}
+
+#livemark-main input {
+  overflow: visible;
+}
+
+#livemark-main [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+#livemark-main * {
+  box-sizing: border-box;
+}
+
+#livemark-main input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+#livemark-main a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+#livemark-main a:hover {
+  text-decoration: underline;
+}
+
+#livemark-main strong {
+  font-weight: 600;
+}
+
+#livemark-main hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+#livemark-main hr:after,
+#livemark-main hr:before {
+  display: table;
+  content: "";
+}
+
+#livemark-main hr:after {
+  clear: both;
+}
+
+/* NOTE: is it possible to find a better fix for not breaking TablePlugin's styles? */
+#livemark-main table:not(.dataTable) {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+#livemark-main td,
+#livemark-main th {
+  padding: 0;
+}
+
+#livemark-main details summary {
+  cursor: pointer;
+}
+
+#livemark-main kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+#livemark-main h1,
+#livemark-main h2,
+#livemark-main h3,
+#livemark-main h4,
+#livemark-main h5,
+#livemark-main h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#livemark-main h1 {
+  font-size: 32px;
+}
+
+#livemark-main h1,
+#livemark-main h2 {
+  font-weight: 600;
+}
+
+#livemark-main h2 {
+  font-size: 24px;
+}
+
+#livemark-main h3 {
+  font-size: 20px;
+}
+
+#livemark-main h3,
+#livemark-main h4 {
+  font-weight: 600;
+}
+
+#livemark-main h4 {
+  font-size: 16px;
+}
+
+#livemark-main h5 {
+  font-size: 14px;
+}
+
+#livemark-main h5,
+#livemark-main h6 {
+  font-weight: 600;
+}
+
+#livemark-main h6 {
+  font-size: 12px;
+}
+
+#livemark-main p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+#livemark-main blockquote {
+  margin: 0;
+}
+
+#livemark-main ol,
+#livemark-main ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#livemark-main ol ol,
+#livemark-main ul ol {
+  list-style-type: lower-roman;
+}
+
+#livemark-main ol ol ol,
+#livemark-main ol ul ol,
+#livemark-main ul ol ol,
+#livemark-main ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+#livemark-main dd {
+  margin-left: 0;
+}
+
+#livemark-main code,
+#livemark-main pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+#livemark-main pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#livemark-main input::-webkit-inner-spin-button,
+#livemark-main input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#livemark-main :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+#livemark-main .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+#livemark-main .border-0 {
+  border: 0!important;
+}
+
+#livemark-main .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+#livemark-main .rounded-1 {
+  border-radius: 3px!important;
+}
+
+#livemark-main .bg-white {
+  background-color: #fff!important;
+}
+
+#livemark-main .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+#livemark-main .text-gray-light {
+  color: #666!important;
+}
+
+#livemark-main .mb-0 {
+  margin-bottom: 0!important;
+}
+
+#livemark-main .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+#livemark-main .pl-0 {
+  padding-left: 0!important;
+}
+
+#livemark-main .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+#livemark-main .pl-1 {
+  padding-left: 4px!important;
+}
+
+#livemark-main .pl-2 {
+  padding-left: 8px!important;
+}
+
+#livemark-main .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+#livemark-main .pl-3,
+#livemark-main .px-3 {
+  padding-left: 16px!important;
+}
+
+#livemark-main .px-3 {
+  padding-right: 16px!important;
+}
+
+#livemark-main .pl-4 {
+  padding-left: 24px!important;
+}
+
+#livemark-main .pl-5 {
+  padding-left: 32px!important;
+}
+
+#livemark-main .pl-6 {
+  padding-left: 40px!important;
+}
+
+#livemark-main .f6 {
+  font-size: 12px!important;
+}
+
+#livemark-main .lh-condensed {
+  line-height: 1.25!important;
+}
+
+#livemark-main .text-bold {
+  font-weight: 600!important;
+}
+
+#livemark-main .pl-c {
+  color: #666;
+}
+
+#livemark-main .pl-c1,
+#livemark-main .pl-s .pl-v {
+  color: #005cc5;
+}
+
+#livemark-main .pl-e,
+#livemark-main .pl-en {
+  color: #6f42c1;
+}
+
+#livemark-main .pl-s .pl-s1,
+#livemark-main .pl-smi {
+  color: #222;
+}
+
+#livemark-main .pl-ent {
+  color: #22863a;
+}
+
+#livemark-main .pl-k {
+  color: #d73a49;
+}
+
+#livemark-main .pl-pds,
+#livemark-main .pl-s,
+#livemark-main .pl-s .pl-pse .pl-s1,
+#livemark-main .pl-sr,
+#livemark-main .pl-sr .pl-cce,
+#livemark-main .pl-sr .pl-sra,
+#livemark-main .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+#livemark-main .pl-smw,
+#livemark-main .pl-v {
+  color: #e36209;
+}
+
+#livemark-main .pl-bu {
+  color: #b31d28;
+}
+
+#livemark-main .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+#livemark-main .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+#livemark-main .pl-c2:before {
+  content: "^M";
+}
+
+#livemark-main .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+#livemark-main .pl-ml {
+  color: #735c0f;
+}
+
+#livemark-main .pl-mh,
+#livemark-main .pl-mh .pl-en,
+#livemark-main .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+#livemark-main .pl-mi {
+  font-style: italic;
+  color: #222;
+}
+
+#livemark-main .pl-mb {
+  font-weight: 700;
+  color: #222;
+}
+
+#livemark-main .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+#livemark-main .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+#livemark-main .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+#livemark-main .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+#livemark-main .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+#livemark-main .pl-ba {
+  color: #586069;
+}
+
+#livemark-main .pl-sg {
+  color: #959da5;
+}
+
+#livemark-main .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+#livemark-main .mb-0 {
+  margin-bottom: 0!important;
+}
+
+#livemark-main .my-2 {
+  margin-bottom: 8px!important;
+}
+
+#livemark-main .my-2 {
+  margin-top: 8px!important;
+}
+
+#livemark-main .pl-0 {
+  padding-left: 0!important;
+}
+
+#livemark-main .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+#livemark-main .pl-1 {
+  padding-left: 4px!important;
+}
+
+#livemark-main .pl-2 {
+  padding-left: 8px!important;
+}
+
+#livemark-main .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+#livemark-main .pl-3 {
+  padding-left: 16px!important;
+}
+
+#livemark-main .pl-4 {
+  padding-left: 24px!important;
+}
+
+#livemark-main .pl-5 {
+  padding-left: 32px!important;
+}
+
+#livemark-main .pl-6 {
+  padding-left: 40px!important;
+}
+
+#livemark-main .pl-7 {
+  padding-left: 48px!important;
+}
+
+#livemark-main .pl-8 {
+  padding-left: 64px!important;
+}
+
+#livemark-main .pl-9 {
+  padding-left: 80px!important;
+}
+
+#livemark-main .pl-10 {
+  padding-left: 96px!important;
+}
+
+#livemark-main .pl-11 {
+  padding-left: 112px!important;
+}
+
+#livemark-main .pl-12 {
+  padding-left: 128px!important;
+}
+
+#livemark-main hr {
+  border-bottom-color: #eee;
+}
+
+#livemark-main kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+#livemark-main:after,
+#livemark-main:before {
+  display: table;
+  content: "";
+}
+
+#livemark-main:after {
+  clear: both;
+}
+
+#livemark-main a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+#livemark-main blockquote,
+#livemark-main details,
+#livemark-main dl,
+#livemark-main ol,
+#livemark-main p,
+#livemark-main pre,
+#livemark-main table:not(.dataTable),
+#livemark-main ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+#livemark-main hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+#livemark-main blockquote {
+  padding: 0 1em;
+  color: #666;
+  border-left: .25em solid #dfe2e5;
+}
+
+#livemark-main blockquote>:first-child {
+  margin-top: 0;
+}
+
+#livemark-main blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+#livemark-main h1,
+#livemark-main h2,
+#livemark-main h3,
+#livemark-main h4,
+#livemark-main h5,
+#livemark-main h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#livemark-main h1 {
+  font-size: 2em;
+}
+
+#livemark-main h1,
+#livemark-main h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+#livemark-main h2 {
+  font-size: 1.5em;
+}
+
+#livemark-main h3 {
+  font-size: 1.25em;
+}
+
+#livemark-main h4 {
+  font-size: 1em;
+}
+
+#livemark-main h5 {
+  font-size: .875em;
+}
+
+#livemark-main h6 {
+  font-size: .85em;
+  color: #666;
+}
+
+#livemark-main ol,
+#livemark-main ul {
+  padding-left: 2em;
+}
+
+#livemark-main ol ol,
+#livemark-main ol ul,
+#livemark-main ul ol,
+#livemark-main ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#livemark-main li {
+  word-wrap: break-all;
+}
+
+#livemark-main li>p {
+  margin-top: 16px;
+}
+
+#livemark-main li+li {
+  margin-top: .25em;
+}
+
+#livemark-main dl {
+  padding: 0;
+}
+
+#livemark-main dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#livemark-main dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+#livemark-main table:not(.dataTable) {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+#livemark-main table:not(.dataTable) th {
+  font-weight: 600;
+}
+
+#livemark-main table:not(.dataTable) td,
+#livemark-main table:not(.dataTable) th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+#livemark-main table:not(.dataTable) tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+#livemark-main table:not(.dataTable) tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+#livemark-main img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+#livemark-main img[align=right] {
+  padding-left: 20px;
+}
+
+#livemark-main img[align=left] {
+  padding-right: 20px;
+}
+
+#livemark-main code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+#livemark-main pre {
+  word-wrap: normal;
+}
+
+#livemark-main pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+#livemark-main .highlight {
+  margin-bottom: 16px;
+}
+
+#livemark-main .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+#livemark-main .highlight pre,
+#livemark-main pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+#livemark-main pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+#livemark-main .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+#livemark-main .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+#livemark-main .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#livemark-main .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+#livemark-main .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#livemark-main .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+#livemark-main .blob-num:before {
+  content: attr(data-line-number);
+}
+
+#livemark-main .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+#livemark-main .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #222;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+#livemark-main .pl-token.active,
+#livemark-main .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+#livemark-main .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+#livemark-main .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+#livemark-main .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+#livemark-main .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+#livemark-main .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+#livemark-main .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+#livemark-main .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+#livemark-main .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+#livemark-main .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+#livemark-main .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+#livemark-main .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+#livemark-main .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+#livemark-main .task-list-item {
+  list-style-type: none;
+}
+
+#livemark-main .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+#livemark-main .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+/* Left */
+
+#livemark-left {
+  visibility: hidden;
+  position: fixed;
+  width: 300px;
+  padding: 10px 40px;
+  padding-bottom: 100px;
+  left: 0px;
+  top: 25px;
+  font-size: 125%;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* NOTE: we need to move it to DisplayPlugin (currently unsetting doesn't work) */
+body:not(.with-readability) #livemark-left::-webkit-scrollbar {
+  display: none; /* Chrome; Safari */
+}
+
+#livemark-left > div:not(:last-child) {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  #livemark-left {
+    visibility: visible;
+  }
+}
+
+/* Right */
+
+#livemark-right {
+  visibility: hidden;
+  position: fixed;
+  width: 300px;
+  padding: 10px 40px;
+  padding-bottom: 100px;
+  right: 0px;
+  top: 25px;
+  font-size: 125%;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* NOTE: we need to move it to DisplayPlugin (currently unsetting doesn't work) */
+body:not(.with-readability) #livemark-right::-webkit-scrollbar {
+  display: none; /* Chrome; Safari */
+}
+
+#livemark-right > div:not(:last-child) {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 992px) {
+  #livemark-right {
+    visibility: visible;
+  }
+}
+
+</style>
+<style>
+
+/* Put your styles here */
+
+</style>
+<style>
+
+#livemark-brand {
+  color: #888;
+}
+
+#livemark-brand ul {
+  overflow: hidden;
+  position: relative;
+  padding-left: 0;
+  margin: 0;
+}
+
+#livemark-brand li {
+  list-style: none;
+}
+
+#livemark-brand a {
+  display: inline-block;
+  color: currentColor;
+  position: relative;
+  width: 100%;
+  line-height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#livemark-brand a.active {
+  font-weight: 700;
+}
+
+#livemark-brand a:hover {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+#livemark-pages {
+  color: #888;
+}
+
+#livemark-pages ul {
+  overflow: hidden;
+  position: relative;
+  padding-left: 0;
+  margin: 0;
+}
+
+#livemark-pages ul.secondary {
+  margin-left: 20px;
+  display: none;
+}
+
+#livemark-pages li.active ul.secondary {
+  display: block;
+}
+
+#livemark-pages li {
+  list-style: none;
+}
+
+#livemark-pages a {
+  display: inline-block;
+  color: currentColor;
+  position: relative;
+  width: 100%;
+  line-height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#livemark-pages li.active > a {
+  font-weight: 700;
+}
+
+#livemark-pages li.group.active > a {
+  font-weight: normal;
+}
+
+#livemark-pages li.group a.primary::after {
+  content: "\f054";
+  font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 2px;
+  right: 0px;
+}
+
+#livemark-pages li.group.active a.primary::after {
+  content: "\f078";
+}
+
+#livemark-pages a:hover {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+.livemark-reference {
+  display: block;
+  /* font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;; */
+}
+
+</style>
+<style>
+
+#livemark-topics {
+  color: #888;
+}
+
+#livemark-topics .toc>.toc-list {
+  overflow: hidden;
+  position: relative;
+}
+
+#livemark-topics .toc>.toc-list li {
+  list-style: none;
+}
+
+#livemark-topics .toc-list {
+  padding-left: 0;
+  margin: 0;
+}
+
+#livemark-topics a.toc-link {
+  color: currentColor;
+}
+
+#livemark-topics a.toc-link:hover {
+  color: #80b2e6;
+}
+
+#livemark-topics .is-active-link {
+  font-weight: 700;
+}
+
+#livemark-topics ul.secondary {
+  margin-left: 20px;
+  display: none;
+}
+
+#livemark-topics li.is-active-li ul.secondary {
+  display: block;
+}
+
+#livemark-topics li.group a.primary::after {
+  content: "\f054";
+  font-size: 16px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 2px;
+  right: 0px;
+}
+
+#livemark-topics li.group.is-active-li a.primary::after {
+  content: "\f078";
+}
+
+#livemark-topics a {
+  display: inline-block;
+  color: currentColor;
+  position: relative;
+  width: 100%;
+  line-height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#livemark-topics a:hover {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+#livemark-notes {
+  color: #aaa;
+  text-align: right;
+  font-size: 14px;
+  float: right;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  #livemark-notes {
+    visibility: visible;
+  }
+}
+
+#livemark-notes a {
+  color: inherit;
+}
+
+#livemark-notes a:hover {
+  color: #80b2e6;
+}
+
+#livemark-notes a[target="_blank"]:after {
+  content: "\f35d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  vertical-align: text-top;
+  text-decoration: none;
+  display: inline-block;
+  color: #ccc;
+  font-size: 10px;
+  margin-left: -1px;
+}
+
+#livemark-notes a[target="_blank"]:hover:after {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+#livemark-signs {
+  color: #888;
+  border-top: 1px solid #eaecef;
+  margin-top: 24px;
+  padding-top: 20px;
+  height: 50px;
+}
+
+#livemark-signs .next {
+  float: right;
+}
+
+#livemark-signs a {
+  font-size: 20px;
+  color: currentColor;
+}
+
+#livemark-signs a:hover {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+#livemark-rating {
+  height: 46px;
+}
+
+#livemark-rating iframe {
+  margin-top: -5px;
+  border: none;
+  opacity: 0.5;
+}
+
+</style>
+<style>
+
+#livemark-about {
+  color: #888;
+}
+
+</style>
+<style>
+
+#livemark-links {
+  color: #888;
+}
+
+#livemark-links ul {
+  overflow: hidden;
+  position: relative;
+  padding-left: 0;
+  margin: 0;
+}
+
+#livemark-links li {
+  list-style: none;
+}
+
+#livemark-links a {
+  display: inline-block;
+  color: currentColor;
+  position: relative;
+  width: 100%;
+  line-height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#livemark-links a:hover {
+  color: #80b2e6;
+}
+
+#livemark-links a[target="_blank"]:after {
+  content: "\f35d";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  vertical-align: text-top;
+  text-decoration: none;
+  display: inline-block;
+  color: #aaa;
+  font-size: 12px;
+  margin-left: -2px;
+}
+
+#livemark-links a[target="_blank"]:hover:after {
+  color: #80b2e6;
+}
+
+</style>
+<style>
+
+.livemark-audio {
+  padding-bottom: 10px;
+}
+
+</style>
+<style>
+
+.livemark-blog-item {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+.livemark-blog-item h2 a:not(.heading) {
+  color: #222 !important;
+}
+
+</style>
+<style>
+
+#livemark-cards .modal-lg {
+    max-width: 1000px;
+}
+
+</style>
+<style>
+
+#livemark-display {
+  display: flex;
+  position: fixed;
+  visibility: hidden;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #888;
+  width: 240px;
+  bottom: 20px;
+  right: 30px;
+}
+
+@media only screen and (min-width: 992px) {
+  #livemark-display {
+    visibility: visible;
+  }
+}
+
+#livemark-display .control {
+  cursor: pointer;
+  background-color:#fff;
+  box-shadow: 0px 7px 10px #eee;
+  border-radius: 50%;
+  border: solid 1px #ddd;
+  z-index: 100;
+}
+
+#livemark-display .control .fa {
+  display: inline-block !important;
+  opacity: 1 !important;
+  padding: 15px;
+}
+
+.with-readability {
+  font-size: 20px;
+}
+
+.with-readability #livemark-main {
+  color: #000;
+}
+
+.with-readability #livemark-left > *,
+.with-readability #livemark-right > * {
+  color: #444;
+}
+
+.with-readability #livemark-left,
+.with-readability #livemark-right {
+  scrollbar-width: unset;  /* Firefox */
+  -ms-overflow-style: unset;  /* Internet Explorer 10+ */
+}
+
+/* NOTE: */
+/* temporarily implemented in HtmlPlugin */
+/* .with-readability #livemark-left::-webkit-scrollbar, */
+/* .with-readability #livemark-right::-webkit-scrollbar { */
+  /* display: unset !important; [> Chrome; Safari <] */
+/* } */
+
+</style>
+<style>
+
+.livemark-image {
+  padding-bottom: 10px;
+}
+
+</style>
+<style>
+
+.livemark-infinity {
+  display: none;
+}
+
+</style>
+<style>
+
+#livemark-mobile {
+  position: absolute;
+  visibility: hidden;
+  z-index: 10000;
+  /* NOTE: We can't use "right" because of Mobile Chrome and #34 */
+  left: calc(100vw - 60px);
+  top: 24px;
+}
+
+#livemark-mobile .stack {
+  margin-top: 15px;
+  display: block;
+  cursor: pointer;
+}
+
+#livemark-mobile .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #aaa;
+}
+
+@media only screen and (max-width: 768px) {
+  #livemark-mobile {
+    visibility: visible;
+  }
+
+  #livemark-mobile.active {
+    position: fixed;
+  }
+
+  #livemark-mobile.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #livemark-mobile.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #livemark-mobile.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #livemark-left {
+      position: fixed;
+      top: 0;
+      left: -100vw;
+      padding-top: 35px;
+      background-color: #fff;
+      width: 100vw;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      visibility: visible;
+      z-index: 1000;
+  }
+
+  #livemark-left.active {
+    left: 0;
+  }
+}
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/paginationjs@2.1.5/dist/pagination.css">
+<style>
+
+.livemark-pagination {
+  display: none;
+}
+
+</style>
+<style>
+
+.livemark-remark {
+  display: block;
+}
+
+</style>
+<style>
+
+#livemark-search {
+  position: fixed;
+  left: 30px;
+  width: 240px;
+  bottom: 20px;
+  z-index:100;
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  #livemark-search {
+    visibility: visible;
+  }
+}
+
+#livemark-search-input {
+  width: 100%;
+  outline: none;
+  font-size: 20px;
+  padding: 7px 10px;
+  border-radius: 20px;
+  border: solid 1px #ddd;
+  box-shadow: 0px 7px 10px #eee;
+  color: #888;
+}
+
+#livemark-search-input::placeholder {
+  color: #888;
+}
+
+#livemark-search-input::-webkit-search-decoration,
+#livemark-search-input::-webkit-search-cancel-button,
+#livemark-search-input::-webkit-search-results-button,
+#livemark-search-input::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+#livemark-search-output {
+  visibility: hidden;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 10px;
+  border-radius: 20px;
+  border: solid 1px #ddd;
+  box-shadow: 0px 7px 10px #eee;
+  background: white;
+  margin-bottom: 10px;
+}
+
+#livemark-search-output ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#livemark-search-output li.active {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#livemark-search-output a {
+  color: #5CC820;
+  text-decoration: underline;
+}
+
+.livemark-search-found {
+  background-color: #5CC820;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+</style>
+<style>
+
+#livemark-main h2 .livemark-source-button {
+  float: right;
+  display: none;
+}
+
+#livemark-main h2:hover .livemark-source-button {
+  display: inline;
+  margin-left: 8px;
+  color: #aaa;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#livemark-main h2 .livemark-source-button:hover {
+  text-decoration: underline;
+}
+
+.livemark-source-section {
+  border: dashed 1px #ccc;
+}
+
+</style>
+<style>
+
+.livemark-task pre:first-child {
+  margin-bottom: 0 !important;
+  border-bottom: dashed 1px #ccc;
+}
+
+</style>
+<style>
+
+.livemark-video {
+  padding-bottom: 10px;
+}
+
+</style>
+</head>
+<body>
+<div id="livemark-left">
+
+<div id="livemark-brand">
+  <ul>
+    <li>
+      <a class="active" href=".">
+        GeoData Training
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div id="livemark-pages">
+  <ul class="primary">
+        <li class="primary  active">
+      <a href="index.html" class="primary">
+        Introduction
+      </a>
+          </li>
+        <li class="primary  ">
+      <a href="pages/before.html" class="primary">
+        1.	Before the live training
+      </a>
+          </li>
+        <li class="primary  ">
+      <a href="pages/during.html" class="primary">
+        2.	During the live training
+      </a>
+          </li>
+        <li class="primary  ">
+      <a href="pages/mentoring.html" class="primary">
+        3. 	The mentoring phase
+      </a>
+          </li>
+        <li class="primary  ">
+      <a href="pages/completing.html" class="primary">
+        4. 	Completing the programme
+      </a>
+          </li>
+        <li class="primary  ">
+      <a href="pages/examples.html" class="primary">
+        5. 	Examples from the Philippines Training
+      </a>
+          </li>
+      </ul>
+</div>
+
+<div id="livemark-topics">
+  <div class="toc">
+  </div>
+</div>
+</div>
+<div id="livemark-main">
+<div id="livemark-notes">
+  Written in <a href="https://livemark.frictionlessdata.io" target="_blank"> Livemark </a><br>
+  (2021-12-13 11:41)
+</div>
+
+<h1>GeoData Training Programme</h1>
+<img src="assets/image.png" alt="GeoData Training" width="100%">
+<h2>Overview</h2>
+<p>This training guide for trainers of the OKF x Facebook GeoData Training Programme is a useful resource that records the lessons learned from previous training sessions and provides best practice approaches to the planning, implementation, and monitoring of the training programme.</p>
+<h2>Timeline</h2>
+<table>
+  <tr>
+   <td><strong>Time</strong>
+   </td>
+   <td><strong>Activities.</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>6 weeks before live training
+   </td>
+   <td>
+<ul>
+
+<li>Initial communication and reaching out to participants
+
+</li><li>Coordination meeting with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>5 weeks before live training
+   </td>
+   <td>
+<ul>
+
+<li>Completion of pre-event surveys by participants
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>4 weeks before live training
+   </td>
+   <td>
+<ul>
+
+<li>Preparation of training agenda
+
+</li><li>Preparation training materials
+
+</li><li>Participants added to Slack channel
+
+</li><li>Coordination meeting with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>3 weeks before live training
+   </td>
+   <td>
+<ul>
+
+<li>Preparation of training agenda
+
+</li><li>Preparation training materials
+
+</li><li>Participants added to Slack channel
+
+</li><li>Coordination meeting with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>2 weeks before live training
+   </td>
+   <td>
+<ul>
+
+<li>Final training agenda
+
+</li><li>Final training materials
+
+</li><li>Coordination meeting with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>1 week before live training
+   </td>
+   <td>
+<ul>
+
+<li>Technical dry run with trainers
+
+</li><li>Training website event page
+
+</li><li>Coordination meeting with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>Week of live training
+   </td>
+   <td>
+<ul>
+
+<li>Live training
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>1st week of mentoring phase
+   </td>
+   <td>
+<ul>
+
+<li>Mentoring of participants
+
+</li><li>Updating of project tracker
+
+</li><li>Coordination meeting for the mentoring phase with Open Knowledge
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>2nd week of mentoring phase
+   </td>
+   <td>
+<ul>
+
+<li>Mentoring of participants
+
+</li><li>Updating of project tracker
+
+</li><li>[optional] Advanced mentoring session
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>3rd week of mentoring phase
+   </td>
+   <td>
+<ul>
+
+<li>Mentoring of participants
+
+</li><li>Updating of project tracker
+
+</li><li>[optional] Advanced mentoring session
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>4th week of mentoring phase
+   </td>
+   <td>
+<ul>
+
+<li>Mentoring of participants
+
+</li><li>Updating of project tracker
+
+</li><li>[optional] Final presentation activity
+</li>
+</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>1-3 weeks after mentoring phase
+   </td>
+   <td>
+<ul>
+
+<li>Follow-up completion of projects and reports
+
+</li><li>Updating of project tracker
+
+</li><li>Send and compile post-event survey
+
+</li><li>Training retrospective with Open Knowledge
+
+</li><li>Generate and submit final reports
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+
+<div id="livemark-signs">
+  <div>
+        <div class="next">
+      <a href="/pages/before.html">
+        1.	Before the live training »
+      </a>
+    </div>
+            <div class="prev">
+      <a href="/pages/examples.html">
+        « 5. 	Examples from the Philippines Training
+      </a>
+    </div>
+      </div>
+</div>
+</div>
+<div id="livemark-right">
+
+<div id="livemark-rating">
+  <iframe src="https://ghbtns.com/github-btn.html?user=frictionlessdata&amp;repo=geodata-training&amp;type=star&amp;count=true&amp;size=large" width="160px" height="30px" title="GitHub">
+  </iframe>
+</div>
+
+<div id="livemark-about">
+  <div>
+    This training guide for trainers of the OKF x Facebook GeoData Training Programme
+  </div>
+</div>
+
+<div id="livemark-links">
+  <ul>
+        <li>
+      <a href="https://schoolofdata.org/" target="_blank">
+        School of Data
+      </a>
+    </li>
+        <li>
+      <a href="https://frictionlessdata.io" target="_blank">
+        Frictionless
+      </a>
+    </li>
+        <li>
+      <a href="https://livemark.frictionlessdata.io" target="_blank">
+        Livemark
+      </a>
+    </li>
+        <li>
+      <a href="https://github.com/frictionlessdata/geodata-training/issues" target="_blank">
+        Report
+      </a>
+    </li>
+        <li>
+      <a href="https://github.com/frictionlessdata/geodata-training/fork" target="_blank">
+        Fork
+      </a>
+    </li>
+        <li>
+      <a href="https://github.com/frictionlessdata/geodata-training/edit/main/index.md" target="_blank">
+        Edit
+      </a>
+    </li>
+      
+</ul></div>
+</div>
+<script src="https://unpkg.com/lodash@4.17.21/lodash.min.js"></script>
+<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/prismjs@1.23.0/components/prism-core.min.js"></script>
+<script src="https://unpkg.com/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const content = document.querySelector("#livemark-main");
+  const headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6, h7");
+  const headingMap = {};
+
+  // Add identifiers
+  Array.prototype.forEach.call(headings, function (heading) {
+    const id = heading.id
+      ? heading.id
+      : heading.textContent
+          .trim()
+          .toLowerCase()
+          .split(" ")
+          .join("-")
+          .replace(/[!@#$%^&*():]/gi, "")
+          .replace(/\//gi, "-");
+    headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0;
+    if (headingMap[id]) {
+      heading.id = id + "-" + headingMap[id];
+    } else {
+      heading.id = id;
+    }
+  });
+
+  // Add links
+  Array.prototype.forEach.call(headings, function (heading) {
+    const link = document.createElement("a");
+    link.href = "#" + heading.id;
+    link.innerText = "#";
+    link.classList.add("heading");
+    heading.appendChild(link);
+  });
+});
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const groups = $("#livemark-pages li.group");
+  for (const group of groups) {
+    $(group)
+      .children("a")
+      .click((ev) => {
+        ev.preventDefault();
+        $(group).toggleClass("active");
+        // $(group).find(".fa").toggleClass("fa-chevron-right");
+        // $(group).find(".fa").toggleClass("fa-chevron-down");
+      });
+  }
+});
+
+</script>
+<script src="https://unpkg.com/tocbot@4.12.3/dist/tocbot.min.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Start tocbot
+  tocbot.init({
+    // Where to render the table of contents.
+    tocSelector: ".toc",
+    // Where to grab the headings to build the table of contents.
+    contentSelector: "#livemark-main",
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: "h2",
+    // For headings inside relative or absolute positioned containers within content.
+    hasInnerContainers: true,
+    // Called each time a heading is parsed. Expects a string in return.
+    headingLabelCallback: (label) => label.replace(/(^#|#$)/g, "").trim(),
+    // Disable generating ordered lists (ol)
+    orderedList: false,
+    // Fix active link class
+    onClick: syncList,
+    scrollEndCallback: syncList,
+  });
+
+  // Style list
+  $("#livemark-topics .toc > ul").addClass("primary");
+  $("#livemark-topics .toc > ul > li").addClass("primary");
+  $("#livemark-topics .toc > ul > li > a").addClass("primary");
+  $("#livemark-topics .toc ul.is-collapsible").addClass("secondary");
+  $("#livemark-topics .toc ul.is-collapsible li").addClass("secondary");
+  $("#livemark-topics .toc ul.is-collapsible li > a").addClass("secondary");
+  for (const element of $("#livemark-topics .primary")) {
+    if ($(element).find(".secondary").length) {
+      $(element).addClass("group");
+    }
+  }
+
+  // Sync list
+  function syncList() {
+    for (const element of $("#livemark-topics li.primary")) {
+      if ($(element).find(".is-active-li").length) {
+        $(element).addClass("is-active-li");
+      }
+    }
+  }
+  syncList();
+});
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const handlePopstate = async () => {
+    const href = location.hash;
+    if (href.startsWith("#card=")) {
+      const code = href.split("=")[1];
+      const response = await fetch(`/assets/cards/${code}.html`);
+      const html = await response.text();
+      $("#livemark-cards .modal-title").html("");
+      $("#livemark-cards .modal-body").html(html);
+      $("#livemark-cards h1").appendTo("#livemark-cards .modal-title");
+      $("#livemark-cards .modal").modal();
+      $("#livemark-cards .modal").on("hidden.bs.modal", () => {
+        history.pushState("", document.title, window.location.pathname);
+      });
+    }
+  };
+  window.addEventListener("popstate", handlePopstate);
+  handlePopstate();
+});
+
+</script>
+
+<div id="livemark-cards">
+  <div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/ue-scroll-js@2.0.2/dist/ue-scroll.min.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Init
+  const readability = localStorage.getItem("livemark-display-readability");
+  if (readability === "plus") {
+    document.body.classList.add("with-readability");
+  } else {
+    document.body.classList.remove("with-readability");
+  }
+
+  // Plus
+  document
+    .getElementById("livemark-display-plus")
+    .addEventListener("click", function () {
+      document.body.classList.add("with-readability");
+      localStorage.setItem("livemark-display-readability", "plus");
+    });
+
+  // Minus
+  document
+    .getElementById("livemark-display-minus")
+    .addEventListener("click", function () {
+      document.body.classList.remove("with-readability");
+      localStorage.setItem("livemark-display-readability", "minus");
+    });
+
+  // Print
+  document
+    .getElementById("livemark-display-print")
+    .addEventListener("click", function () {
+      window.print();
+    });
+
+  // Scroll
+  const scrollSpeed = parseInt("10");
+  UeScroll.init({ element: "#livemark-display-scroll .fa", scrollSpeed });
+});
+
+</script>
+
+<div id="livemark-display">
+  <div class="control" id="livemark-display-print" title="Decrease readability">
+    <span class="fa fa-print"></span>
+  </div>
+  <div class="control" id="livemark-display-plus" title="Increase readability">
+    <span class="fa fa-plus"></span>
+  </div>
+  <div class="control" id="livemark-display-minus" title="Decrease readability">
+    <span class="fa fa-minus"></span>
+  </div>
+  <div class="control" id="livemark-display-scroll" title="Back to top">
+    <span class="fa fa-chevron-up"></span>
+  </div>
+</div>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = $(".livemark-infinity");
+  if (container.length) {
+    const elements = container
+      .children()
+      .map((index, element) => element.outerHTML)
+      .get();
+    container.html(elements.splice(0, 100));
+    container.show();
+    window.addEventListener("scroll", () => {
+      const element = container.get(0);
+      const position = window.scrollY + window.innerHeight + 100;
+      const threshold = element.offsetTop + element.scrollHeight;
+      if (position > threshold) {
+        container.append(elements.splice(0, 100));
+      }
+    });
+  }
+});
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const left = document.getElementById("livemark-left");
+  const mobile = document.getElementById("livemark-mobile");
+  mobile.addEventListener("click", () => {
+    left.classList.toggle("active");
+    mobile.classList.toggle("active");
+  });
+  // NOTE: We can replace the selector by 'a:not[href=""]' after #57
+  left.querySelectorAll("li:not(.group) a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (left.classList.contains("active")) {
+        left.classList.remove("active");
+        mobile.classList.remove("active");
+      }
+    });
+  });
+});
+
+</script>
+
+<div id="livemark-mobile">
+  <div class="stack" title="Toggle menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</div>
+<script src="https://unpkg.com/paginationjs@2.1.5/dist/pagination.min.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = $(".livemark-pagination");
+  if (container.length) {
+    const elements = container
+      .children()
+      .map((index, element) => element.outerHTML)
+      .get();
+    container.html(`
+      <div class="livemark-pagination-data"></div>
+      <div class="livemark-pagination-navs"></div>
+    `);
+    container.find(".livemark-pagination-navs").pagination({
+      dataSource: elements,
+      callback: (html) => {
+        container.find(".livemark-pagination-data").html(html);
+      },
+    });
+    container.show();
+  }
+});
+
+</script>
+<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://unpkg.com/jquery-highlight@3.5.0/jquery.highlight.js"></script>
+<script src="https://unpkg.com/jquery.scrollto@2.1.3/jquery.scrollTo.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  const prepare = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const query = searchParams.get('query') || ''
+    if (query.length >= 3) {
+      searchInput.value = query
+    }
+  }
+  const search = () => {
+    unhighlight()
+    query = searchInput.value
+    searchOutput.innerHTML = ''
+    searchOutput.style.visibility = 'hidden'
+    const searchParams = new URLSearchParams(window.location.search);
+    if (query.length < 3) return
+    const results = searchIndex.search(query)
+    if (!results.length) return
+    searchParams.set('query', query)
+    const newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+    history.pushState(null, '', newRelativePathQuery);
+    const elements = []
+    for (const result of results) {
+      const item = searchItems[result.ref]
+      const link = `${item.relpath}.html`
+      const cls = window.location.pathname === link ? 'class="active"' : ''
+      elements.push(`<li ${cls}><a href="${link}?query=${query}">${item.name}</a></li>`)
+    }
+    searchOutput.innerHTML = `<ul>\n${elements.join('\n')}\n</ul>`
+    searchOutput.style.visibility = 'visible'
+    highlight()
+  }
+  const highlight = () => {
+    const stem = lunr.stemmer(new lunr.Token(query)).str
+    $('#livemark-main').highlight(stem, {className: 'livemark-search-found'});
+    setTimeout(() => {
+      $(window).scrollTo($('.livemark-search-found').first(), 1000)
+    }, 1000)
+  }
+  const unhighlight = () => {
+    $('#livemark-main').unhighlight({className: 'livemark-search-found'});
+  }
+  const searchItems = {
+          'index': {
+          'name': 'GeoData Training Programme',
+          'path': 'index',
+          'relpath': 'index',
+          'text': "# GeoData Training Programme ```html markup ``` ## Overview This training guide for trainers of the OKF x Facebook GeoData Training Programme is a useful resource that records the lessons learned from previous training sessions and provides best practice approaches to the planning, implementation, and monitoring of the training programme. ## Timeline ```html markup Time Activities. 6 weeks before live training Initial communication and reaching out to participants Coordination meeting with Open Knowledge 5 weeks before live training Completion of pre-event surveys by participants 4 weeks before live training Preparation of training agenda Preparation training materials Participants added to Slack channel Coordination meeting with Open Knowledge 3 weeks before live training Preparation of training agenda Preparation training materials Participants added to Slack channel Coordination meeting with Open Knowledge 2 weeks before live training Final training agenda Final training materials Coordination meeting with Open Knowledge 1 week before live training Technical dry run with trainers Training website event page Coordination meeting with Open Knowledge Week of live training Live training 1st week of mentoring phase Mentoring of participants Updating of project tracker Coordination meeting for the mentoring phase with Open Knowledge 2nd week of mentoring phase Mentoring of participants Updating of project tracker [optional] Advanced mentoring session 3rd week of mentoring phase Mentoring of participants Updating of project tracker [optional] Advanced mentoring session 4th week of mentoring phase Mentoring of participants Updating of project tracker [optional] Final presentation activity 1-3 weeks after mentoring phase Follow-up completion of projects and reports Updating of project tracker Send and compile post-event survey Training retrospective with Open Knowledge Generate and submit final reports ```",
+      },
+          'pages/before': {
+          'name': '1.	Before the live training',
+          'path': 'pages/before',
+          'relpath': 'pages/before',
+          'text': "# 1. Before the live training ## 1.1 Communication with participants * Coordinate with the country/region Facebook representative to reach out to the prospective participants with an introductory email to introduce the training programme as well as the trainers (who should be copied in the email).This introductory email should include the commitments expected from participants\u2014i.e. they are expected to commit 1 day per week during the mentoring phase to complete a simple project. * After the introductory email, the trainers should send a follow up email to all the participants that include the links to the training website and/or the pre-event surveys and ask them to complete these surveys within a week. ### 1.1.1 General email protocols * Have a main email thread that includes all the participants, trainers, and Facebook coordinators for general communication and announcements that affect all the participants\u2014e.g. links to materials, reminders, booking of mentoring calls. This could be the first email sent by the trainers to the participants. * Prior to the training, send an email at least once a week to the main thread to remind participants to answer the pre-event survey (if they haven\u2019t yet), download and install QGIS, download the datasets needed, save the training schedules and Zoom links to their calendars, etc. * For individual reminders and communications with participants/teams, you can use a separate email thread. For example, you may create individual email threads for the teams during the mentoring phase. ### 1.1.2 The training slack channel * The Slack channel may be used for communications before, during, and after the training. * You can invite the participants to join the slack channel as soon as they have confirmed attendance of the training. * Encourage the use of the Slack channel for asking questions so that everyone may benefit from the answers. * You can also use the slack channel for sending screenshots during the training. ## 1.2 Pre-event surveys The pre-event surveys are designed to get the background information of the participants and an overview of their skills as to data literacy/GIS in general and QGIS + OSM in particular. Knowing the skill levels of the participants is important to allow us: 1. To divide the participants into two groups if needed. 1. Use the surveys to identify if the participants have different skill levels. For example some participants might have no experience working with structured, geographical data, or QGIS while some participants have more extensive experience working with QGIS, OSM, etc. In such a case, to make it so that the training isn\u2019t too fast for the beginners but also not too boring for the intermediate / advanced users, it might be good to divide the participants into two groups\u2014a beginner group and an intermediate / advanced group and have the groups do different tasks during the breakout / off-cam sessions. 2. To create a training agenda that is tailored to the needs and skills of the participants. ### Pre-event background survey * The pre-event background survey is used to get background information about the participants such as their names, contact details, organizations and roles, self-assessment of their data literacy skills, how they work with data and how they think the training can help them, and information about their video-conferencing tools and experience. * A sample of the background survey: [https://forms.gle/VQVhNbeijJUwgdsn9](https://forms.gle/VQVhNbeijJUwgdsn9) * Access to the template will be provided. ### Pre-event skills assessment survey * The pre-event skills assessment survey is designed to have a better understanding of the skills of the participants which will be used to divide them into groups based on their skill levels if needed. The survey includes questions related to working with structured data (CSV), basic geographic concepts, as well as QGIS and OSM-specific questions. * A sample of the skills assessment survey: [https://forms.gle/YbZtw3WnHXHxojpQ8](https://forms.gle/YbZtw3WnHXHxojpQ8) * Access to the templates will be provided. * The skills assessment survey document: ## 1.3 Training agenda ### The pre-event surveys and the agenda Use the pre-event surveys to identify the topics that the participants want to focus on during the training since we only have around 9-12 training hours. Ask participants about specific topics or use case studies that they want discussed in the training. The results of the pre-event surveys should define the training agenda. Try to identify these things during the pre-event surveys: 1. The skill level of the participants 1. Are the participants the same skill level? 1. Are all beginners or experienced users? 2. Is there a significant difference in the skill level of the participants and can they be divided into groups based on their skill level? 2. If this is the case, we can divide the participants into groups based on their skill level during the breakout / hands-on sessions and have different activities for them. 2. The interests of the participants 3. Are the participants more interested in doing analysis? 3. We can focus on analysis tools, processing algorithms, etc. during the training. 4. Are the participants more interested in creating visualizations and maps? 4. We can focus on visualization techniques, map-making and cartography options in QGIS, data presentation do\u2019s and don\u2019ts. ### Training Agenda * The training agenda includes the **schedule of activities during the two-day live training sessions and should be based on the results of the pre-event surveys**. Because the training curriculum covers a lot of topics, not everything can and should be discussed during the live training. It would be close to impossible to try to fit all the contents of the training curriculum into just 12 hours of training. As such, the training agenda should be tailored to the needs and skills of the participants. * **Include breakout sessions and off-cam / show-and-tell sessions** in the agenda so that it doesn\u2019t become simply a lecture. **Try to make the agenda as interactive as possible**. * Include as part of the agenda for the first day a short introduction about the training programme by the Facebook coordinator. Make sure to inform and invite the Facebook coordinator beforehand. * Depending on the results of the pre-event survey, there are several kinds of training agenda that we can create: 1. **An agenda built around the Data Pipeline **that includes both conceptual and practical applications. The conceptual part will include an introduction to geographic and QGIS concepts while the practical part highlights **how to use the Data Pipeline to solve geospatial problems using QGIS**. 1. Example agenda: 2. **An agenda that introduces the capabilities of QGIS and the HRSL** to the participants. The training would then be **similar to an introductory course in QGIS**. This approach is **useful if all or a majority of the participants are beginners or have no specific preference when it comes to learning how to do analysis or visualizations in QGIS**. 2. Example agenda: 3. A **\u201cthematic\u201d agenda that focuses on either the analysis capabilities or visualization capabilities** of QGIS. This approach is **useful if all or a majority of the participants prefer learning about how to do analysis or visualizations in QGIS**. Depending on the skill level of the participants, this agenda can cover topics from basic analysis/visualization to advanced analysis/visualization. The topics could be a \u201ccombination of heavy in analysis + light on visualization\u201d or \u201clight in analysis + heavy on visualization\u201d 3. **Example: Analysis-focused agenda** **(topics)** 1. Sources of data 2. When to use vectors and rasters 3. QGIS expression engine 4. Discussion of the QGIS processing framework 5. Processing scripts and plugins 6. Graphical modeler 7. Vector and raster processing and analysis 4. **Example: Visualization-focused agenda** **(topics)** 8. Best practices for data presentation 9. Styling and symbology in QGIS 10. QGIS Style Manager 11. Data-define overrides, geometry generators, blending modes, draw effects 12. Plugins for styling, sharing resources, etc. 13. The Print Layout 14. The QGIS Atlas ## 1.4 Training slides and materials ### Training Slides / Presentations * Template: * Examples: * Data Pipeline approach (MRC): * Modular approach (Philippines): [Day 1](https://docs.google.com/presentation/d/e/2PACX-1vRxLIGwKf9qh2ani0HfOazQ0w8BOqkvcw7SxJYpjK9nsQoZofDykhX1J2eE-8jKkDlA8OtIgTqzVxis/pub?start=false\u0026loop=false\u0026delayms=600000) | [Day 2](https://docs.google.com/presentation/d/e/2PACX-1vQ0-YU3QzureRrj6yvBZUwnO37fwLrDUmMqRhxpys4c0LMWqv48w2r12aZnSh73Ffxw3qYUJ4YIE_jI/pub?start=false\u0026loop=false\u0026delayms=600000) * Utilize already existing materials outside of the training curriculum to use as a resource or supplement during the live training. This could include the QGIS documentation, blog posts and articles, and YouTube videos showing basic to advanced QGIS functionalities. This is especially useful when the resource is in the local language. * There are countless posts on the internet about how to do stuff in QGIS, utilize these resources together with the curriculum. * There are also countless videos about QGIS. Share these with the participants as well and, whenever applicable, show a video during a training if it can help the participants understand a topic better. * Examples: * [https://bnhr.xyz/blog/tags.html#qgis](https://bnhr.xyz/blog/tags.html#qgis) * [https://www.qgistutorials.com/en/](https://www.qgistutorials.com/en/) * [https://courses.spatialthoughts.com/](https://courses.spatialthoughts.com/) * [https://courses.gisopencourseware.org/](https://courses.gisopencourseware.org/) * [https://www.youtube.com/c/BNHRdotXYZ](https://www.youtube.com/c/BNHRdotXYZ) * [https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about](https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about) ## 1.5 Training event page * An event page for the training should be set up in the Open Knowledge Training Website prior to the training. * The training website is currently found here:[ https://school-of-data.github.io/okf-events-a/](https://school-of-data.github.io/okf-events-a/) * Instructions for adding events to the training website are here: [https://github.com/school-of-data/okf-events-a](https://github.com/school-of-data/okf-events-a) * The event page will hold information about the training such as links to the pre-event surveys, the training agenda and schedule, the trainers, training materials, training outcomes/outputs, and post-event surveys. * A good site for generating HTML tables from the training agenda: [https://www.tablesgenerator.com/html_tables](https://www.tablesgenerator.com/html_tables) * To maintain consistency of design, you may choose to **uncheck** _Do not generate CSS_ or if you decide to generate the CSS, remove all instances of \u201cfont-family:Arial, sans-serif;font-size:14px;\u201d in the generated HTML. This can easily be done by opening the generated HTML in a text editor and doing a simple search and replace. ## 1.6 Scheduling the live training sessions * Zoom will be used for the live training sessions unless otherwise requested by the participants. A licensed Zoom account will be provided for the trainers. * When scheduling the live training sessions: * Create a scheduled meeting on Zoom * Copy the link/invite the the scheduled Zoom meeting * Send an email to the main email thread that includes the Zoom meeting links. * Create a calendar invite (e.g. Google) for the live training sessions to each of the participants and include the Zoom link in the description of the calendar invite. ## 1.7 Dry run and technical testing * Have a short dry run and technical testing a few days before the actual training. * Trainers should familiarize themselves with how the Zoom platform works\u2014how to record the meeting, how to share screens, how to create breakout rooms, polls, etc. * The trainers should also test that their audio and video are working fine. * Participants may be invited to the dry run in order to test their audio, video, etc. * You can also use the dry run and technical test meeting to help participants troubleshoot their machines if they are having trouble installing and running QGIS. ## Checklist before the training 1. Pre-training background survey 2. Pre-training skills assessment survey 3. Training agenda 4. Participants added to the Slack channel 5. Participants have installed QGIS 3.16 (at least) 6. Participants have downloaded the data 7. Participants invited and confirmed attendance to the live training (Zoom, etc.) 8. Training event page 9. Dry run and technical testing",
+      },
+          'pages/during': {
+          'name': '2.	During the live training',
+          'path': 'pages/during',
+          'relpath': 'pages/during',
+          'text': "# 2. During the live training ## 2.1 Objectives The objectives of the live training sessions are: 1. To introduce QGIS, OSM, and Facebook data such as the High Resolution settlement Layer (HRSL). 2. To teach the participants how to utilize the technologies mentioned above in the work they are doing in disaster risk management and mitigation and health (e.g. COVID-19) response. The lessons/modules should be based on the pre-event training surveys. 3. To help the participants identify possible projects that they can do during the mentoring phase. ## 2.2 Programme curriculum The Programme Curriculum is a resource that the participants can use beyond the training. [https://github.com/school-of-data/GIS-curriculum](https://github.com/school-of-data/GIS-curriculum) ## 2.3 Training data The data for the training can be found here: [data](https://drive.google.com/drive/folders/1HRX1qLvpO0ZcJfj_kh3_0_gxEMEk_JQ1?usp=sharing) ## 2.4 Training proper ### 2.4.1 Recording the training * The live training sessions should be recorded. * The two (2) trainers should record the training simultaneously. * To do this, the two trainers should both be hosts of the meeting. * The recording may be stored on the cloud (using the provided Zoom account) or on the trainer\u2019s local computer. In the case of the latter, the trainer should share a copy of the recording to OKF. ### 2.4.2 Curated questions * Curate a list of questions (and answers to these questions) during the training. The Slack channel, a shared Google doc, or the Zoom messenger may be used for this. ### 2.4.3 Screenshare and checking the status of participants * During the exercises, the participants may be asked to share their screens to check if they are able to follow along with the exercises. * During breakout sessions, you may ask the participant to share their screen and take the lead while doing the exercises. * For hands-on exercises, Zoom\u2019s option to \u201cShare multiple screens simultaneously\u201d may be used by the trainers in order to check on the progress of each of the participants. * Participants can also be asked to share a screenshot + short paragraph of where they are and what they found difficult at the end of an activity. The Slack channel may be utilized for this purpose. ### 2.4.4 Brainstorming projects for the mentoring phase * Before the end of the live training sessions, the participants should have an idea of what projects they would like to do during the mentoring phase. * Ideally, these projects should be done by group and should utilize the things they learned during the training. * Additionally, having projects that are directly related to their day-to-day work is advised. ## Checklist after the training 1. Share training materials (presentations, data, etc.) with participants 2. Share training sessions recordings with participants 3. Participants have sample projects that they would like to complete during the mentoring phase",
+      },
+          'pages/mentoring': {
+          'name': '3. 	The mentoring phase',
+          'path': 'pages/mentoring',
+          'relpath': 'pages/mentoring',
+          'text': "# 3. The mentoring phase ## 3.1 The mentoring phase The mentoring phase is a 4-week phase after the live training where participants will be mentored and supported by the trainers to complete a simple project that showcases what they learned during the training and how these can be used in their organizations. When deciding on what project to pursue, both the trainer and participant must consider the feasibility of the project in terms of the time and effort needed to complete them. ### 3.1.1 Objectives The purpose of the mentoring phase is: * To help participants complete a short project that utilize the things they learned during the live training sessions * To augment the skills and learnings from the live training sessions ### 3.1.2 Time commitment and expectation from participants * Participants are expected to allocate one day (8 hours) per week to work on their projects. * Ideally, it should be feasible to complete the projects selected by the participants in four days of work. This includes finding and getting the data, deciding on the analysis to use, performing the analysis, and creating the data presentation (if needed). ### 3.1.3 Time commitment for trainers * A total of 8 hours per week is allotted for the trainer/s during the mentoring phase. This time allocation can include: * Mentoring calls with groups/participants to track progress of their projects. See Project Tracking document. * Advanced mentoring sessions. * Answering emails/questions, preparing materials, etc. ### 3.1.4 Mentoring calls * The mentoring calls are weekly catch-up calls between the trainers and the participants to discuss their progress, problems encountered, things they need help with, and what to do next. * Depending on the number of groups, the mentoring calls should last no more than 30-45 minutes per group per week. * The mentoring call should not be used for the participants to do work as participants are expected to work on their projects outside of the mentoring calls. * At the end of the mentoring calls, the action points should include the next steps that the participants need to take in order to progress or finish their projects. * The trainers and participants can decide what schedule works best for the mentoring calls when both the trainers and participants are available\u2014e.g. afternoons only, mornings only, Thursdays and Fridays only, etc. * Use the Project Tracking document to document the mentoring calls. * The mentoring calls should be recorded. * **Scheduling the mentoring calls**. * Services like Doodle ([https://doodle.com/](https://doodle.com/)) can be used so participants can easily schedule a mentoring call with the trainer. * Once a schedule is booked, create a scheduled meeting on Zoom and copy the link. * Send a calendar invite to the participants with the link to the scheduled meeting in the description. * Add/invite an OKF email to the mentoring calls as well. This will be useful for monitoring the mentoring phase. ### 3.1.5 Weekly email updates * At the start of each week during the mentoring phase, send an email in the general thread reminding the participants about scheduling a mentoring call for the week, updating them about the status of their projects as tracked in the tracking document, and inviting them to advanced mentoring sessions during the week (if any). Slack may also be used for this. * The individual email threads with the participants may be used to answer specific questions about their projects and as a way for them to update the trainer about their progress or things they need help with. Slack may also be used for this. ### 3.1.6 [optional] Advanced mentoring sessions * Optional advanced mentoring sessions can be done during the second and third weeks of the mentoring phase that can discuss more advanced topics that were not thoroughly discussed during the live training and that the participants might need in their projects. * Examples of this include: * Advanced QGIS visualization and map-making techniques * Advanced QGIS analysis techniques\u2014e.g. Network Analysis. ### 3.1.7 [optional] Final presentation showcasing what the participants learned * If the participants and the Facebook coordinator agree, a final presentation showcasing what the participants have learned can be scheduled a few weeks after the end of the mentoring phase. * This event should be about what the participants learned through the process rather than showcasing the projects. If they have finished their project, they can show it. If not, they can share what they learned and what they plan to do next with that knowledge. * Templates for the final presentation can be found below: * Spreadsheet of information: * Presentation: ### Example mentoring phase schedule for the trainer Week 1 - Mentoring calls (4-6h), Others (1h) Week 2 - Mentoring calls (4-6h), Advanced mentoring session (2-3h), Others (1h) Week 3 - Mentoring calls (4-6h), Advanced mentoring session (2-3h), Others (1h) Week 4 - Mentoring calls (4-6h) Two weeks after end of mentoring phase - Final presentation (1-2h) ## ## 3.2 Projects ### 3.2.1 General considerations for projects It is important to ensure the feasibility of the projects. The participants should be able to complete the project in the 4 weeks of the mentoring phase while allocating 1 day of work per week. Aside from the feasibility of the project, it is also important to consider how the projects will showcase the things learned by the participants from the training and how the projects can help the participants and their organizations. Given these considerations, we should note the following information about the proposed projects. * Availability and accessibility of data. * Analysis to be performed. * The audience of the project. * How the results will be presented. This information should be inputted in the Project Tracking and Monitoring document. ### 3.2.2 Project tracking and monitoring Post-training data projects and maps tracking document: [[template] Post-training data projects and maps](https://docs.google.com/spreadsheets/d/1z7_k-vZbtpf6FietZ6awfo-TcvJpDzQRVRf1l4wRvpA/edit?usp=sharing) ### 3.2.3 General timeline for projects The general timeline for projects is as follows: * **By end of Week 1** * The participants must finalize the information about their project as provided in the Project Tracking and Monitoring document. * The participants must have the data or at least have an idea where to find and how to get the data needed for the project. * **By end of Week 2** * The participants must have determined the feasibility of their projects and decide whether to: * continue to pursue it, * change topic, or * write a report about their project which includes information such as: * the problems they encountered in doing the project\u2014e.g. lack of open data, data that isn\u0027t accessible or in the proper formats, time considerations, etc., * the lessons they learned, * their recommendations for making sure similar projects will be more feasible in the future, and * what they plan to do with the things they learned during the programme. * **By end of Week 3** * Continue with the project or the report * **By end of Week 4** * Finalize the project or the report ### 3.2.4 What to do if a project does not seem feasible? * As mentioned above, if the project does not seem feasible, the participants may choose to change topic or create a report highlighting what they learned during the process of doing the project. * The focus of the mentoring phase isn\u2019t just for the participants to simply finish projects but to learn and experience what it entails to create data-driven geospatial projects that utilize the things they learned during the training. With this in mind, sometimes it is better for participants to write about their experience doing the project and share what they learned than finishing a project that is too simple or one that does not add value to them or their organizations. ### 3.2.5 Sample projects and their timelines #### Data visualization project * **By end of Week 1** * The data needed for the project have been collected. * The trainer provides the participants with options and resources to determine what data visualization technique works best with the project they are doing. * **By end of Week 2** * Participants send the first draft of the data visualization * The trainer provides possible improvements to the data visualization * **By end of Week 3** * Participants send the second draft of the data visualization * The trainer and participants test the draft visualizations by showing it to possible users / audience and getting feedback. * **By end of Week 4** * The participants and trainers finalize the data visualization based on the feedback from the user test. * The short report about the project is finished. #### Site-suitability project * **By end of Week 1** * The data needed for the project have been collected. * The trainer provides the participants with options and resources to determine the next steps for doing the site-suitability analysis such as how to pre-process the data, what processing steps to use, and how to compute for the suitability score. * **By end of Week 2** * The participants have prepared the data for processing. * **By end of Week 3** * The participants have performed the site-suitability analysis. * **By end of Week 4** * The site-suitability maps are finalized. * The short report about the project is finished. #### Network analysis project * **By end of Week 1** * The data needed for the project have been collected * The trainer provides the participants with options and resources to determine the next steps for doing the network analysis such as how to pre-process the data, what processing steps to use, and how to perform the Network Analysis. * **By end of Week 2** * The participants have prepared the data for processing. * **By end of Week 3** * The participants have performed the Network Analysis. * **By end of Week 4** * The Network Analysis maps are finalized. * The short report about the project is finished. #### Model-builder project * **By end of Week 1** * The data needed for the project have been collected. * The process that will be modelled has been identified. * The trainer provides the participants with resources about the different processing algorithms that can be used and the QGIS Graphical Modeller. * **By end of Week 2** * The participants can perform the process manually in QGIS. * The participants send a step-by-step guide or flowchart of how the process is done in QGIS. * The trainer shows how a model is made in QGIS. * **By end of Week 3** * The participants have converted the manual process into a QGIS model. * The model is tested and refined. * **By end of Week 4** * The model is finalized. * The short report about the project is finished.",
+      },
+          'pages/completing': {
+          'name': '4. 	Completing the programme',
+          'path': 'pages/completing',
+          'relpath': 'pages/completing',
+          'text': "# 4. Completing the programme ## 4.1 Finishing the projects * In case some of the participants were unable to complete their projects and there is time allocated for the mentoring phase, this remaining time can be used to help the participants complete the projects even beyond the 4-week mentoring phase. * Projects can be considered as: * Complete - the objectives of the project have been met and outputs are available * Partially complete - the project is more than halfway completed and needs a bit more time in order to complete * Incomplete - the project is still in its infancy and cannot be completed without a lot of work. * In lieu of the projects, participants can also write a report about their learning experience. This report, if it includes all the necessary information, can be considered a substitute for a completed project. ## 4.2 Post-training survey * The participants will be asked to complete a post-training survey asking about what they learned, what they liked, what can be improved, and what they plan to do with the knowledge they learned in the training. * This survey can be administered during the final presentation if there is one. ## 4.3 Training retrospective * A training retrospective with OKF will be scheduled after the training programme ## 4.4 Project Report (for each group) * Final report by the participants about their projects, what they learned from the training, and how they plan to use what they learned in the future. * ## 4.5 Final Report (by trainer/s) * Final report by the trainer highlighting the outcomes and outputs of the training as well as providing a technical and narrative summary * ## Checklist of deliverables 4. Training agenda 5. Pre-event background and skills assessment surveys 6. Presentations used in the training and mentoring 7. Recording of training and mentoring sessions 8. Spreadsheet of the mentoring notes 9. Post-training assessment survey 10. Project Report (for each group) 11. Final Report (by trainer/s)",
+      },
+          'pages/examples': {
+          'name': '5. 	Examples from the Philippines Training',
+          'path': 'pages/examples',
+          'relpath': 'pages/examples',
+          'text': "# 5. Examples from the Philippines Training ### Training agenda ### Training slides [[Data Pipeline Approach] Slides](https://docs.google.com/presentation/d/1vtGyXFqnXXd05Rpn8d1WZQtQe5IKkrxUVhfD8SFDVYY/edit?usp=sharing) [[Module approach] Day 1](https://docs.google.com/presentation/d/e/2PACX-1vRxLIGwKf9qh2ani0HfOazQ0w8BOqkvcw7SxJYpjK9nsQoZofDykhX1J2eE-8jKkDlA8OtIgTqzVxis/pub?start=false\u0026loop=false\u0026delayms=600000) [[Module approach] Day 2](https://docs.google.com/presentation/d/e/2PACX-1vQ0-YU3QzureRrj6yvBZUwnO37fwLrDUmMqRhxpys4c0LMWqv48w2r12aZnSh73Ffxw3qYUJ4YIE_jI/pub?start=false\u0026loop=false\u0026delayms=600000) ### Training event page [https://school-of-data.github.io/okf-events-a/open-geodata-programme/philippines-01](https://school-of-data.github.io/okf-events-a/open-geodata-programme/philippines-01) ### Mentoring session brainstorming document ### Project tracking document ### Live training sessions recording [Live training sessions recording](https://drive.google.com/drive/folders/1yGRdyyz8vUKwb-FzJHuPangI3UeWxlGv?usp=sharing) ### Advanced mentoring session recording [Advanced mentoring session recording](https://drive.google.com/drive/folders/1NZhjWKR4300tu0CtqhGAWcC5vv6QcuHu?usp=sharing)",
+      },
+          'index': {
+          'name': 'GeoData Training Programme',
+          'path': 'index',
+          'relpath': 'index',
+          'text': "# GeoData Training Programme ## Trainers\u2019 Guide BNHR 2021.05.12 / 2021.06.15 / 2021.07.13 ## Introduction This training guide for trainers of the OKF x Facebook GeoData Training Programme is a useful resource that records the lessons learned from previous training sessions and provides best practice approaches to the planning, implementation, and monitoring of the training programme. ## Timeline ```html markup Time Activities. 6 weeks before live training Initial communication and reaching out to participants Coordination meeting with Open Knowledge 5 weeks before live training Completion of pre-event surveys by participants 4 weeks before live training Preparation of training agenda Preparation training materials Participants added to Slack channel Coordination meeting with Open Knowledge 3 weeks before live training Preparation of training agenda Preparation training materials Participants added to Slack channel Coordination meeting with Open Knowledge 2 weeks before live training Final training agenda Final training materials Coordination meeting with Open Knowledge 1 week before live training Technical dry run with trainers Training website event page Coordination meeting with Open Knowledge Week of live training Live training 1st week of mentoring phase Mentoring of participants Updating of project tracker Coordination meeting for the mentoring phase with Open Knowledge 2nd week of mentoring phase Mentoring of participants Updating of project tracker [optional] Advanced mentoring session 3rd week of mentoring phase Mentoring of participants Updating of project tracker [optional] Advanced mentoring session 4th week of mentoring phase Mentoring of participants Updating of project tracker [optional] Final presentation activity 1-3 weeks after mentoring phase Follow-up completion of projects and reports Updating of project tracker Send and compile post-event survey Training retrospective with Open Knowledge Generate and submit final reports ```",
+      },
+          'pages/before': {
+          'name': '1.	Before the live training',
+          'path': 'pages/before',
+          'relpath': 'pages/before',
+          'text': "# 1. Before the live training ## 1.1 Communication with participants * Coordinate with the country/region Facebook representative to reach out to the prospective participants with an introductory email to introduce the training programme as well as the trainers (who should be copied in the email).This introductory email should include the commitments expected from participants\u2014i.e. they are expected to commit 1 day per week during the mentoring phase to complete a simple project. * After the introductory email, the trainers should send a follow up email to all the participants that include the links to the training website and/or the pre-event surveys and ask them to complete these surveys within a week. ### 1.1.1 General email protocols * Have a main email thread that includes all the participants, trainers, and Facebook coordinators for general communication and announcements that affect all the participants\u2014e.g. links to materials, reminders, booking of mentoring calls. This could be the first email sent by the trainers to the participants. * Prior to the training, send an email at least once a week to the main thread to remind participants to answer the pre-event survey (if they haven\u2019t yet), download and install QGIS, download the datasets needed, save the training schedules and Zoom links to their calendars, etc. * For individual reminders and communications with participants/teams, you can use a separate email thread. For example, you may create individual email threads for the teams during the mentoring phase. ### 1.1.2 The training slack channel * The Slack channel may be used for communications before, during, and after the training. * You can invite the participants to join the slack channel as soon as they have confirmed attendance of the training. * Encourage the use of the Slack channel for asking questions so that everyone may benefit from the answers. * You can also use the slack channel for sending screenshots during the training. ## 1.2 Pre-event surveys The pre-event surveys are designed to get the background information of the participants and an overview of their skills as to data literacy/GIS in general and QGIS + OSM in particular. Knowing the skill levels of the participants is important to allow us: 1. To divide the participants into two groups if needed. 1. Use the surveys to identify if the participants have different skill levels. For example some participants might have no experience working with structured, geographical data, or QGIS while some participants have more extensive experience working with QGIS, OSM, etc. In such a case, to make it so that the training isn\u2019t too fast for the beginners but also not too boring for the intermediate / advanced users, it might be good to divide the participants into two groups\u2014a beginner group and an intermediate / advanced group and have the groups do different tasks during the breakout / off-cam sessions. 2. To create a training agenda that is tailored to the needs and skills of the participants. ### Pre-event background survey * The pre-event background survey is used to get background information about the participants such as their names, contact details, organizations and roles, self-assessment of their data literacy skills, how they work with data and how they think the training can help them, and information about their video-conferencing tools and experience. * A sample of the background survey: [https://forms.gle/VQVhNbeijJUwgdsn9](https://forms.gle/VQVhNbeijJUwgdsn9) * Access to the template will be provided. ### Pre-event skills assessment survey * The pre-event skills assessment survey is designed to have a better understanding of the skills of the participants which will be used to divide them into groups based on their skill levels if needed. The survey includes questions related to working with structured data (CSV), basic geographic concepts, as well as QGIS and OSM-specific questions. * A sample of the skills assessment survey: [https://forms.gle/YbZtw3WnHXHxojpQ8](https://forms.gle/YbZtw3WnHXHxojpQ8) * Access to the templates will be provided. * The skills assessment survey document: ## 1.3 Training agenda ### The pre-event surveys and the agenda Use the pre-event surveys to identify the topics that the participants want to focus on during the training since we only have around 9-12 training hours. Ask participants about specific topics or use case studies that they want discussed in the training. The results of the pre-event surveys should define the training agenda. Try to identify these things during the pre-event surveys: 1. The skill level of the participants 1. Are the participants the same skill level? 1. Are all beginners or experienced users? 2. Is there a significant difference in the skill level of the participants and can they be divided into groups based on their skill level? 2. If this is the case, we can divide the participants into groups based on their skill level during the breakout / hands-on sessions and have different activities for them. 2. The interests of the participants 3. Are the participants more interested in doing analysis? 3. We can focus on analysis tools, processing algorithms, etc. during the training. 4. Are the participants more interested in creating visualizations and maps? 4. We can focus on visualization techniques, map-making and cartography options in QGIS, data presentation do\u2019s and don\u2019ts. ### Training Agenda * The training agenda includes the **schedule of activities during the two-day live training sessions and should be based on the results of the pre-event surveys**. Because the training curriculum covers a lot of topics, not everything can and should be discussed during the live training. It would be close to impossible to try to fit all the contents of the training curriculum into just 12 hours of training. As such, the training agenda should be tailored to the needs and skills of the participants. * **Include breakout sessions and off-cam / show-and-tell sessions** in the agenda so that it doesn\u2019t become simply a lecture. **Try to make the agenda as interactive as possible**. * Include as part of the agenda for the first day a short introduction about the training programme by the Facebook coordinator. Make sure to inform and invite the Facebook coordinator beforehand. * Depending on the results of the pre-event survey, there are several kinds of training agenda that we can create: 1. **An agenda built around the Data Pipeline **that includes both conceptual and practical applications. The conceptual part will include an introduction to geographic and QGIS concepts while the practical part highlights **how to use the Data Pipeline to solve geospatial problems using QGIS**. 1. Example agenda: 2. **An agenda that introduces the capabilities of QGIS and the HRSL** to the participants. The training would then be **similar to an introductory course in QGIS**. This approach is **useful if all or a majority of the participants are beginners or have no specific preference when it comes to learning how to do analysis or visualizations in QGIS**. 2. Example agenda: 3. A **\u201cthematic\u201d agenda that focuses on either the analysis capabilities or visualization capabilities** of QGIS. This approach is **useful if all or a majority of the participants prefer learning about how to do analysis or visualizations in QGIS**. Depending on the skill level of the participants, this agenda can cover topics from basic analysis/visualization to advanced analysis/visualization. The topics could be a \u201ccombination of heavy in analysis + light on visualization\u201d or \u201clight in analysis + heavy on visualization\u201d 3. **Example: Analysis-focused agenda** **(topics)** 1. Sources of data 2. When to use vectors and rasters 3. QGIS expression engine 4. Discussion of the QGIS processing framework 5. Processing scripts and plugins 6. Graphical modeler 7. Vector and raster processing and analysis 4. **Example: Visualization-focused agenda** **(topics)** 8. Best practices for data presentation 9. Styling and symbology in QGIS 10. QGIS Style Manager 11. Data-define overrides, geometry generators, blending modes, draw effects 12. Plugins for styling, sharing resources, etc. 13. The Print Layout 14. The QGIS Atlas ## 1.4 Training slides and materials ### Training Slides / Presentations * Template: * Examples: * Data Pipeline approach (MRC): * Modular approach (Philippines): [Day 1](https://docs.google.com/presentation/d/e/2PACX-1vRxLIGwKf9qh2ani0HfOazQ0w8BOqkvcw7SxJYpjK9nsQoZofDykhX1J2eE-8jKkDlA8OtIgTqzVxis/pub?start=false\u0026loop=false\u0026delayms=600000) | [Day 2](https://docs.google.com/presentation/d/e/2PACX-1vQ0-YU3QzureRrj6yvBZUwnO37fwLrDUmMqRhxpys4c0LMWqv48w2r12aZnSh73Ffxw3qYUJ4YIE_jI/pub?start=false\u0026loop=false\u0026delayms=600000) * Utilize already existing materials outside of the training curriculum to use as a resource or supplement during the live training. This could include the QGIS documentation, blog posts and articles, and YouTube videos showing basic to advanced QGIS functionalities. This is especially useful when the resource is in the local language. * There are countless posts on the internet about how to do stuff in QGIS, utilize these resources together with the curriculum. * There are also countless videos about QGIS. Share these with the participants as well and, whenever applicable, show a video during a training if it can help the participants understand a topic better. * Examples: * [https://bnhr.xyz/blog/tags.html#qgis](https://bnhr.xyz/blog/tags.html#qgis) * [https://www.qgistutorials.com/en/](https://www.qgistutorials.com/en/) * [https://courses.spatialthoughts.com/](https://courses.spatialthoughts.com/) * [https://courses.gisopencourseware.org/](https://courses.gisopencourseware.org/) * [https://www.youtube.com/c/BNHRdotXYZ](https://www.youtube.com/c/BNHRdotXYZ) * [https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about](https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about) ## 1.5 Training event page * An event page for the training should be set up in the Open Knowledge Training Website prior to the training. * The training website is currently found here:[ https://school-of-data.github.io/okf-events-a/](https://school-of-data.github.io/okf-events-a/) * Instructions for adding events to the training website are here: [https://github.com/school-of-data/okf-events-a](https://github.com/school-of-data/okf-events-a) * The event page will hold information about the training such as links to the pre-event surveys, the training agenda and schedule, the trainers, training materials, training outcomes/outputs, and post-event surveys. * A good site for generating HTML tables from the training agenda: [https://www.tablesgenerator.com/html_tables](https://www.tablesgenerator.com/html_tables) * To maintain consistency of design, you may choose to **uncheck** _Do not generate CSS_ or if you decide to generate the CSS, remove all instances of \u201cfont-family:Arial, sans-serif;font-size:14px;\u201d in the generated HTML. This can easily be done by opening the generated HTML in a text editor and doing a simple search and replace. ## 1.6 Scheduling the live training sessions * Zoom will be used for the live training sessions unless otherwise requested by the participants. A licensed Zoom account will be provided for the trainers. * When scheduling the live training sessions: * Create a scheduled meeting on Zoom * Copy the link/invite the the scheduled Zoom meeting * Send an email to the main email thread that includes the Zoom meeting links. * Create a calendar invite (e.g. Google) for the live training sessions to each of the participants and include the Zoom link in the description of the calendar invite. ## 1.7 Dry run and technical testing * Have a short dry run and technical testing a few days before the actual training. * Trainers should familiarize themselves with how the Zoom platform works\u2014how to record the meeting, how to share screens, how to create breakout rooms, polls, etc. * The trainers should also test that their audio and video are working fine. * Participants may be invited to the dry run in order to test their audio, video, etc. * You can also use the dry run and technical test meeting to help participants troubleshoot their machines if they are having trouble installing and running QGIS. ## Checklist before the training 1. Pre-training background survey 2. Pre-training skills assessment survey 3. Training agenda 4. Participants added to the Slack channel 5. Participants have installed QGIS 3.16 (at least) 6. Participants have downloaded the data 7. Participants invited and confirmed attendance to the live training (Zoom, etc.) 8. Training event page 9. Dry run and technical testing",
+      },
+          'pages/during': {
+          'name': '2.	During the live training',
+          'path': 'pages/during',
+          'relpath': 'pages/during',
+          'text': "# 2. During the live training ## 2.1 Objectives The objectives of the live training sessions are: 1. To introduce QGIS, OSM, and Facebook data such as the High Resolution settlement Layer (HRSL). 2. To teach the participants how to utilize the technologies mentioned above in the work they are doing in disaster risk management and mitigation and health (e.g. COVID-19) response. The lessons/modules should be based on the pre-event training surveys. 3. To help the participants identify possible projects that they can do during the mentoring phase. ## 2.2 Programme curriculum The Programme Curriculum is a resource that the participants can use beyond the training. [https://github.com/school-of-data/GIS-curriculum](https://github.com/school-of-data/GIS-curriculum) ## 2.3 Training data The data for the training can be found here: [data](https://drive.google.com/drive/folders/1HRX1qLvpO0ZcJfj_kh3_0_gxEMEk_JQ1?usp=sharing) ## 2.4 Training proper ### 2.4.1 Recording the training * The live training sessions should be recorded. * The two (2) trainers should record the training simultaneously. * To do this, the two trainers should both be hosts of the meeting. * The recording may be stored on the cloud (using the provided Zoom account) or on the trainer\u2019s local computer. In the case of the latter, the trainer should share a copy of the recording to OKF. ### 2.4.2 Curated questions * Curate a list of questions (and answers to these questions) during the training. The Slack channel, a shared Google doc, or the Zoom messenger may be used for this. ### 2.4.3 Screenshare and checking the status of participants * During the exercises, the participants may be asked to share their screens to check if they are able to follow along with the exercises. * During breakout sessions, you may ask the participant to share their screen and take the lead while doing the exercises. * For hands-on exercises, Zoom\u2019s option to \u201cShare multiple screens simultaneously\u201d may be used by the trainers in order to check on the progress of each of the participants. * Participants can also be asked to share a screenshot + short paragraph of where they are and what they found difficult at the end of an activity. The Slack channel may be utilized for this purpose. ### 2.4.4 Brainstorming projects for the mentoring phase * Before the end of the live training sessions, the participants should have an idea of what projects they would like to do during the mentoring phase. * Ideally, these projects should be done by group and should utilize the things they learned during the training. * Additionally, having projects that are directly related to their day-to-day work is advised. ## Checklist after the training 1. Share training materials (presentations, data, etc.) with participants 2. Share training sessions recordings with participants 3. Participants have sample projects that they would like to complete during the mentoring phase",
+      },
+          'pages/mentoring': {
+          'name': '3. 	The mentoring phase',
+          'path': 'pages/mentoring',
+          'relpath': 'pages/mentoring',
+          'text': "# 3. The mentoring phase ## 3.1 The mentoring phase The mentoring phase is a 4-week phase after the live training where participants will be mentored and supported by the trainers to complete a simple project that showcases what they learned during the training and how these can be used in their organizations. When deciding on what project to pursue, both the trainer and participant must consider the feasibility of the project in terms of the time and effort needed to complete them. ### 3.1.1 Objectives The purpose of the mentoring phase is: * To help participants complete a short project that utilize the things they learned during the live training sessions * To augment the skills and learnings from the live training sessions ### 3.1.2 Time commitment and expectation from participants * Participants are expected to allocate one day (8 hours) per week to work on their projects. * Ideally, it should be feasible to complete the projects selected by the participants in four days of work. This includes finding and getting the data, deciding on the analysis to use, performing the analysis, and creating the data presentation (if needed). ### 3.1.3 Time commitment for trainers * A total of 8 hours per week is allotted for the trainer/s during the mentoring phase. This time allocation can include: * Mentoring calls with groups/participants to track progress of their projects. See Project Tracking document. * Advanced mentoring sessions. * Answering emails/questions, preparing materials, etc. ### 3.1.4 Mentoring calls * The mentoring calls are weekly catch-up calls between the trainers and the participants to discuss their progress, problems encountered, things they need help with, and what to do next. * Depending on the number of groups, the mentoring calls should last no more than 30-45 minutes per group per week. * The mentoring call should not be used for the participants to do work as participants are expected to work on their projects outside of the mentoring calls. * At the end of the mentoring calls, the action points should include the next steps that the participants need to take in order to progress or finish their projects. * The trainers and participants can decide what schedule works best for the mentoring calls when both the trainers and participants are available\u2014e.g. afternoons only, mornings only, Thursdays and Fridays only, etc. * Use the Project Tracking document to document the mentoring calls. * The mentoring calls should be recorded. * **Scheduling the mentoring calls**. * Services like Doodle ([https://doodle.com/](https://doodle.com/)) can be used so participants can easily schedule a mentoring call with the trainer. * Once a schedule is booked, create a scheduled meeting on Zoom and copy the link. * Send a calendar invite to the participants with the link to the scheduled meeting in the description. * Add/invite an OKF email to the mentoring calls as well. This will be useful for monitoring the mentoring phase. ### 3.1.5 Weekly email updates * At the start of each week during the mentoring phase, send an email in the general thread reminding the participants about scheduling a mentoring call for the week, updating them about the status of their projects as tracked in the tracking document, and inviting them to advanced mentoring sessions during the week (if any). Slack may also be used for this. * The individual email threads with the participants may be used to answer specific questions about their projects and as a way for them to update the trainer about their progress or things they need help with. Slack may also be used for this. ### 3.1.6 [optional] Advanced mentoring sessions * Optional advanced mentoring sessions can be done during the second and third weeks of the mentoring phase that can discuss more advanced topics that were not thoroughly discussed during the live training and that the participants might need in their projects. * Examples of this include: * Advanced QGIS visualization and map-making techniques * Advanced QGIS analysis techniques\u2014e.g. Network Analysis. ### 3.1.7 [optional] Final presentation showcasing what the participants learned * If the participants and the Facebook coordinator agree, a final presentation showcasing what the participants have learned can be scheduled a few weeks after the end of the mentoring phase. * This event should be about what the participants learned through the process rather than showcasing the projects. If they have finished their project, they can show it. If not, they can share what they learned and what they plan to do next with that knowledge. * Templates for the final presentation can be found below: * Spreadsheet of information: * Presentation: ### Example mentoring phase schedule for the trainer Week 1 - Mentoring calls (4-6h), Others (1h) Week 2 - Mentoring calls (4-6h), Advanced mentoring session (2-3h), Others (1h) Week 3 - Mentoring calls (4-6h), Advanced mentoring session (2-3h), Others (1h) Week 4 - Mentoring calls (4-6h) Two weeks after end of mentoring phase - Final presentation (1-2h) ## ## 3.2 Projects ### 3.2.1 General considerations for projects It is important to ensure the feasibility of the projects. The participants should be able to complete the project in the 4 weeks of the mentoring phase while allocating 1 day of work per week. Aside from the feasibility of the project, it is also important to consider how the projects will showcase the things learned by the participants from the training and how the projects can help the participants and their organizations. Given these considerations, we should note the following information about the proposed projects. * Availability and accessibility of data. * Analysis to be performed. * The audience of the project. * How the results will be presented. This information should be inputted in the Project Tracking and Monitoring document. ### 3.2.2 Project tracking and monitoring Post-training data projects and maps tracking document: [[template] Post-training data projects and maps](https://docs.google.com/spreadsheets/d/1z7_k-vZbtpf6FietZ6awfo-TcvJpDzQRVRf1l4wRvpA/edit?usp=sharing) ### 3.2.3 General timeline for projects The general timeline for projects is as follows: * **By end of Week 1** * The participants must finalize the information about their project as provided in the Project Tracking and Monitoring document. * The participants must have the data or at least have an idea where to find and how to get the data needed for the project. * **By end of Week 2** * The participants must have determined the feasibility of their projects and decide whether to: * continue to pursue it, * change topic, or * write a report about their project which includes information such as: * the problems they encountered in doing the project\u2014e.g. lack of open data, data that isn\u0027t accessible or in the proper formats, time considerations, etc., * the lessons they learned, * their recommendations for making sure similar projects will be more feasible in the future, and * what they plan to do with the things they learned during the programme. * **By end of Week 3** * Continue with the project or the report * **By end of Week 4** * Finalize the project or the report ### 3.2.4 What to do if a project does not seem feasible? * As mentioned above, if the project does not seem feasible, the participants may choose to change topic or create a report highlighting what they learned during the process of doing the project. * The focus of the mentoring phase isn\u2019t just for the participants to simply finish projects but to learn and experience what it entails to create data-driven geospatial projects that utilize the things they learned during the training. With this in mind, sometimes it is better for participants to write about their experience doing the project and share what they learned than finishing a project that is too simple or one that does not add value to them or their organizations. ### 3.2.5 Sample projects and their timelines #### Data visualization project * **By end of Week 1** * The data needed for the project have been collected. * The trainer provides the participants with options and resources to determine what data visualization technique works best with the project they are doing. * **By end of Week 2** * Participants send the first draft of the data visualization * The trainer provides possible improvements to the data visualization * **By end of Week 3** * Participants send the second draft of the data visualization * The trainer and participants test the draft visualizations by showing it to possible users / audience and getting feedback. * **By end of Week 4** * The participants and trainers finalize the data visualization based on the feedback from the user test. * The short report about the project is finished. #### Site-suitability project * **By end of Week 1** * The data needed for the project have been collected. * The trainer provides the participants with options and resources to determine the next steps for doing the site-suitability analysis such as how to pre-process the data, what processing steps to use, and how to compute for the suitability score. * **By end of Week 2** * The participants have prepared the data for processing. * **By end of Week 3** * The participants have performed the site-suitability analysis. * **By end of Week 4** * The site-suitability maps are finalized. * The short report about the project is finished. #### Network analysis project * **By end of Week 1** * The data needed for the project have been collected * The trainer provides the participants with options and resources to determine the next steps for doing the network analysis such as how to pre-process the data, what processing steps to use, and how to perform the Network Analysis. * **By end of Week 2** * The participants have prepared the data for processing. * **By end of Week 3** * The participants have performed the Network Analysis. * **By end of Week 4** * The Network Analysis maps are finalized. * The short report about the project is finished. #### Model-builder project * **By end of Week 1** * The data needed for the project have been collected. * The process that will be modelled has been identified. * The trainer provides the participants with resources about the different processing algorithms that can be used and the QGIS Graphical Modeller. * **By end of Week 2** * The participants can perform the process manually in QGIS. * The participants send a step-by-step guide or flowchart of how the process is done in QGIS. * The trainer shows how a model is made in QGIS. * **By end of Week 3** * The participants have converted the manual process into a QGIS model. * The model is tested and refined. * **By end of Week 4** * The model is finalized. * The short report about the project is finished.",
+      },
+          'pages/completing': {
+          'name': '4. 	Completing the programme',
+          'path': 'pages/completing',
+          'relpath': 'pages/completing',
+          'text': "# 4. Completing the programme ## 4.1 Finishing the projects * In case some of the participants were unable to complete their projects and there is time allocated for the mentoring phase, this remaining time can be used to help the participants complete the projects even beyond the 4-week mentoring phase. * Projects can be considered as: * Complete - the objectives of the project have been met and outputs are available * Partially complete - the project is more than halfway completed and needs a bit more time in order to complete * Incomplete - the project is still in its infancy and cannot be completed without a lot of work. * In lieu of the projects, participants can also write a report about their learning experience. This report, if it includes all the necessary information, can be considered a substitute for a completed project. ## 4.2 Post-training survey * The participants will be asked to complete a post-training survey asking about what they learned, what they liked, what can be improved, and what they plan to do with the knowledge they learned in the training. * This survey can be administered during the final presentation if there is one. ## 4.3 Training retrospective * A training retrospective with OKF will be scheduled after the training programme ## 4.4 Project Report (for each group) * Final report by the participants about their projects, what they learned from the training, and how they plan to use what they learned in the future. * ## 4.5 Final Report (by trainer/s) * Final report by the trainer highlighting the outcomes and outputs of the training as well as providing a technical and narrative summary * ## Checklist of deliverables 4. Training agenda 5. Pre-event background and skills assessment surveys 6. Presentations used in the training and mentoring 7. Recording of training and mentoring sessions 8. Spreadsheet of the mentoring notes 9. Post-training assessment survey 10. Project Report (for each group) 11. Final Report (by trainer/s)",
+      },
+          'pages/examples': {
+          'name': '5. 	Examples from the Philippines Training',
+          'path': 'pages/examples',
+          'relpath': 'pages/examples',
+          'text': "# 5. Examples from the Philippines Training ### Training agenda ### Training slides [[Data Pipeline Approach] Slides](https://docs.google.com/presentation/d/1vtGyXFqnXXd05Rpn8d1WZQtQe5IKkrxUVhfD8SFDVYY/edit?usp=sharing) [[Module approach] Day 1](https://docs.google.com/presentation/d/e/2PACX-1vRxLIGwKf9qh2ani0HfOazQ0w8BOqkvcw7SxJYpjK9nsQoZofDykhX1J2eE-8jKkDlA8OtIgTqzVxis/pub?start=false\u0026loop=false\u0026delayms=600000) [[Module approach] Day 2](https://docs.google.com/presentation/d/e/2PACX-1vQ0-YU3QzureRrj6yvBZUwnO37fwLrDUmMqRhxpys4c0LMWqv48w2r12aZnSh73Ffxw3qYUJ4YIE_jI/pub?start=false\u0026loop=false\u0026delayms=600000) ### Training event page [https://school-of-data.github.io/okf-events-a/open-geodata-programme/philippines-01](https://school-of-data.github.io/okf-events-a/open-geodata-programme/philippines-01) ### Mentoring session brainstorming document ### Project tracking document ### Live training sessions recording [Live training sessions recording](https://drive.google.com/drive/folders/1yGRdyyz8vUKwb-FzJHuPangI3UeWxlGv?usp=sharing) ### Advanced mentoring session recording [Advanced mentoring session recording](https://drive.google.com/drive/folders/1NZhjWKR4300tu0CtqhGAWcC5vv6QcuHu?usp=sharing)",
+      },
+      };
+  const searchIndex = lunr(function () {
+    this.ref("path")
+    this.field("name", { boost: 10 })
+    this.field("text")
+    for (const item of Object.values(searchItems)) {
+      this.add(item)
+    }
+  });
+  const searchOutput = document.getElementById('livemark-search-output')
+  const searchInput = document.getElementById('livemark-search-input')
+  searchInput.addEventListener('input', search)
+  prepare()
+  search()
+});
+
+</script>
+
+<div id="livemark-search">
+  <div id="livemark-search-output"></div>
+  <input id="livemark-search-input" type="search" placeholder="Search...">
+</div>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Add buttons
+  $("h2").append('<a href="" class="livemark-source-button">Source</a>');
+
+  // Enable buttons
+  $(".livemark-source-button").click(async (ev) => {
+    ev.preventDefault();
+
+    // Close open
+    if ($(".livemark-source-section").length) {
+      $(".livemark-source-section").remove();
+      return;
+    }
+
+    // Load content
+    let source = location.href.replace(".html", ".md");
+    if (!source.endsWith(".md")) source = `${source}index.md`;
+    const heading = $(ev.target).parent().contents().get(0).nodeValue;
+    response = await fetch(source);
+    content = await response.text();
+
+    // Extract section
+    let isCapture;
+    const lines = [];
+    for (const line of content.split(/\r?\n/)) {
+      if (line.startsWith("##")) {
+        isCapture = line.startsWith(`## ${heading}`) ? true : false;
+        continue;
+      }
+      if (isCapture) {
+        lines.push(line);
+      }
+    }
+    const section = _.escape(lines.join("\n").trim());
+
+    // Show section
+    $(ev.target)
+      .parent()
+      .after(
+        `<pre class="livemark-source-section" style="white-space: pre-wrap;">${section}</pre>`
+      );
+  });
+});
+
+</script>
+</body>
+</html>
