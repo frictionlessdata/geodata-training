@@ -1,7 +1,7 @@
-# 4. 	Completing the programme
+# Completing the programme
 
 
-## 4.1	Finishing the projects
+## Finishing the projects
 
 
 
@@ -13,7 +13,7 @@
 * In lieu of the projects, participants can also write a report about their learning experience. This report, if it includes all the necessary information, can be considered a substitute for a completed project.
 
 
-## 4.2	Post-training survey
+## Post-training survey
 
 
 
@@ -21,14 +21,14 @@
 * This survey can be administered during the final presentation if there is one.
 
 
-## 4.3	Training retrospective
+## Training retrospective
 
 
 
 * A training retrospective with OKF will be scheduled after the training programme
 
 
-## 4.4	Project Report (for each group)
+## Project Report (for each group)
 
 
 
@@ -36,7 +36,7 @@
 *
 
 
-## 4.5	Final Report (by trainer/s)
+## Final Report (by trainer/s)
 
 
 

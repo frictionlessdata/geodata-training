@@ -1,7 +1,7 @@
-# 1.	Before the live training
+# Before the live training
 
 
-## 1.1	Communication with participants
+## Communication with participants
 
 
 
@@ -9,7 +9,7 @@
 * After the introductory email, the trainers should send a follow up email to all the participants that include the links to the training website and/or the pre-event surveys and ask them to complete these surveys within a week.
 
 
-### 1.1.1 General email protocols
+### General email protocols
 
 
 
@@ -18,7 +18,7 @@
 * For individual reminders and communications with participants/teams, you can use a separate email thread. For example, you may create individual email threads for the teams during the mentoring phase.
 
 
-### 1.1.2 The training slack channel
+### The training slack channel
 
 
 
@@ -28,7 +28,7 @@
 * You can also use the slack channel for sending screenshots during the training.
 
 
-## 1.2	Pre-event surveys
+## Pre-event surveys
 
 The pre-event surveys are designed to get the background information of the participants and an overview of their skills as to data literacy/GIS in general and QGIS + OSM in particular.
 
@@ -60,7 +60,7 @@ Knowing the skill levels of the participants is important to allow us:
 * The skills assessment survey document:
 
 
-## 1.3	Training agenda
+## Training agenda
 
 
 ### The pre-event surveys and the agenda
@@ -112,7 +112,7 @@ Use the pre-event surveys to identify the topics that the participants want to f
         14. The QGIS Atlas
 
 
-## 1.4	Training slides and materials
+## Training slides and materials
 
 
 ### Training Slides / Presentations
@@ -135,7 +135,7 @@ Use the pre-event surveys to identify the topics that the participants want to f
         * [https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about](https://www.youtube.com/channel/UCGS162t4hkOA0b35ucf1yng/about)
 
 
-## 1.5	Training event page
+## Training event page
 
 
 
@@ -147,7 +147,7 @@ Use the pre-event surveys to identify the topics that the participants want to f
 * To maintain consistency of design, you may choose to **uncheck** _Do not generate CSS_ or if you decide to generate the CSS, remove all instances of “font-family:Arial, sans-serif;font-size:14px;” in the generated HTML. This can easily be done by opening the generated HTML in a text editor and doing a simple search and replace.
 
 
-## 1.6	Scheduling the live training sessions
+## Scheduling the live training sessions
 
 
 
@@ -159,7 +159,7 @@ Use the pre-event surveys to identify the topics that the participants want to f
     * Create a calendar invite (e.g. Google) for the live training sessions to each of the participants and include the Zoom link in the description of the calendar invite.
 
 
-## 1.7	Dry run and technical testing
+## Dry run and technical testing
 
 
 

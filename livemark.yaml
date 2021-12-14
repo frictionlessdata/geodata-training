@@ -16,10 +16,15 @@ pages:
     - path: index
       name: Introduction
     - path: pages/before
+      name: Before Training
     - path: pages/during
+      name: During Training
     - path: pages/mentoring
+      name: Mentoring phase
     - path: pages/completing
+      name: Completion phase
     - path: pages/examples
+      name: Training Examples
 links:
   items:
     - name: School of Data

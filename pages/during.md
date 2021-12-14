@@ -1,7 +1,7 @@
-# 2.	During the live training
+# During the live training
 
 
-## 2.1	Objectives
+## Objectives
 
 The objectives of the live training sessions are:
 
@@ -12,22 +12,22 @@ The objectives of the live training sessions are:
 3. To help the participants identify possible projects that they can do during the mentoring phase.
 
 
-## 2.2	Programme curriculum
+## Programme curriculum
 
 The Programme Curriculum is a resource that the participants can use beyond the training.
 
 [https://github.com/school-of-data/GIS-curriculum](https://github.com/school-of-data/GIS-curriculum)
 
 
-## 2.3	Training data
+## Training data
 
 The data for the training can be found here: [data](https://drive.google.com/drive/folders/1HRX1qLvpO0ZcJfj_kh3_0_gxEMEk_JQ1?usp=sharing)
 
 
-## 2.4	Training proper
+## Training proper
 
 
-### 2.4.1	Recording the training
+### Recording the training
 
 
 
@@ -37,14 +37,14 @@ The data for the training can be found here: [data](https://drive.google.com/dri
 * The recording may be stored on the cloud (using the provided Zoom account) or on the trainer’s local computer. In the case of the latter, the trainer should share a copy of the recording to OKF.
 
 
-### 2.4.2	Curated questions
+### Curated questions
 
 
 
 * Curate a list of questions (and answers to these questions) during the training. The Slack channel, a shared Google doc, or the Zoom messenger may be used for this.
 
 
-### 2.4.3	Screenshare  and checking the status of participants
+### Screenshare and checking the status of participants
 
 
 
@@ -54,7 +54,7 @@ The data for the training can be found here: [data](https://drive.google.com/dri
 * Participants can also be asked to share a screenshot + short paragraph of where they are and what they found difficult at the end of an activity. The Slack channel may be utilized for this purpose.
 
 
-### 2.4.4	Brainstorming projects for the mentoring phase
+### Brainstorming projects for the mentoring phase
 
 
 

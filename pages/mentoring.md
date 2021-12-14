@@ -1,14 +1,18 @@
-# 3. 	The mentoring phase
+---
+topics:
+  selector: 'h2,h3'
+---
+# The mentoring phase
 
 
-## 3.1	The mentoring phase
+## The mentoring phase
 
 The mentoring phase is a 4-week phase after the live training where participants will be mentored and supported by the trainers to complete a simple project that showcases what they learned during the training and how these can be used in their organizations.
 
 When deciding on what project to pursue, both the trainer and participant must consider the feasibility of the project in terms of the time and effort needed to complete them.
 
 
-### 3.1.1	Objectives
+### Objectives
 
 The purpose of the mentoring phase is:
 
@@ -18,7 +22,7 @@ The purpose of the mentoring phase is:
 * To augment the skills and learnings from the live training sessions
 
 
-### 3.1.2	Time commitment and expectation from participants
+### Time commitment and expectation from participants
 
 
 
@@ -26,7 +30,7 @@ The purpose of the mentoring phase is:
 * Ideally, it should be feasible to complete the projects selected by the participants in four days of work. This includes finding and getting the data, deciding on the analysis to use, performing the analysis, and creating the data presentation (if needed).
 
 
-### 3.1.3	Time commitment for trainers
+### Time commitment for trainers
 
 
 
@@ -36,7 +40,7 @@ The purpose of the mentoring phase is:
     * Answering emails/questions, preparing materials, etc.
 
 
-### 3.1.4	Mentoring calls
+### Mentoring calls
 
 
 
@@ -54,7 +58,7 @@ The purpose of the mentoring phase is:
     * Add/invite an OKF email to the mentoring calls as well. This will be useful for monitoring the mentoring phase.
 
 
-### 3.1.5	Weekly email updates
+### Weekly email updates
 
 
 
@@ -62,7 +66,7 @@ The purpose of the mentoring phase is:
 * The individual email threads with the participants may be used to answer specific questions about their projects and as a way for them to update the trainer about their progress or things they need help with. Slack may also be used for this.
 
 
-### 3.1.6	[optional] Advanced mentoring sessions
+### [optional] Advanced mentoring sessions
 
 
 
@@ -72,7 +76,7 @@ The purpose of the mentoring phase is:
     * Advanced QGIS analysis techniques—e.g. Network Analysis.
 
 
-### 3.1.7	[optional] Final presentation showcasing what the participants learned
+### [optional] Final presentation showcasing what the participants learned
 
 
 
@@ -96,13 +100,10 @@ Week 4 - Mentoring calls (4-6h)
 Two weeks after end of mentoring phase - Final presentation (1-2h)
 
 
-##
+## Projects
 
 
-## 3.2	Projects
-
-
-### 3.2.1 General considerations for projects
+### General considerations for projects
 
 It is important to ensure the feasibility of the projects. The participants should be able to complete the project in the 4 weeks of the mentoring phase while allocating 1 day of work per week. Aside from the feasibility of the project, it is also important to consider how the projects will showcase the things learned by the participants from the training and how the projects can help the participants and their organizations. Given these considerations, we should note the following information about the proposed projects.
 
@@ -116,14 +117,14 @@ It is important to ensure the feasibility of the projects. The participants shou
 This information should be inputted in the Project Tracking and Monitoring document.
 
 
-### 3.2.2 Project tracking and monitoring
+### Project tracking and monitoring
 
 Post-training data projects and maps tracking document:
 
 [[template] Post-training data projects and maps](https://docs.google.com/spreadsheets/d/1z7_k-vZbtpf6FietZ6awfo-TcvJpDzQRVRf1l4wRvpA/edit?usp=sharing)
 
 
-### 3.2.3 General timeline for projects
+### General timeline for projects
 
 The general timeline for projects is as follows:
 
@@ -147,7 +148,7 @@ The general timeline for projects is as follows:
     * Finalize the project or the report
 
 
-### 3.2.4 What to do if a project does not seem feasible?
+### What to do if a project does not seem feasible?
 
 
 
@@ -155,7 +156,7 @@ The general timeline for projects is as follows:
 * The focus of the mentoring phase isn’t just for the participants to simply finish projects but to learn and experience what it entails to create data-driven geospatial projects that utilize the things they learned during the training. With this in mind, sometimes it is better for participants to write about their experience doing the project and share what they learned than finishing a project that is too simple or one that does not add value to them or their organizations.
 
 
-### 3.2.5 Sample projects and their timelines
+### Sample projects and their timelines
 
 
 #### Data visualization project
