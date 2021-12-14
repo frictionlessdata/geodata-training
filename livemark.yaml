@@ -9,6 +9,7 @@ topics:
   selector: h2
 site:
   favicon: assets/favicon.ico
+  layout: layout.html
   styles:
     - style.css
 pages:

@@ -111,11 +111,12 @@ The main plugin for rendering project as HTML pages called `site`. You can see i
 ```yaml
 site:
   favicon: assets/favicon.ico
+  layout: layout.html
   styles:
     - style.css
 ```
 
-To update the CSS styles change `style.css`'s rules and run `livemark build` even though your livereload server is running (currently it's a limitation of the livereload server -- it doesn't update styles automatically).
+To update the layout change `layout.html` (e.g. adding a footer) and to change the CSS styles change `style.css`'s rules. You need to run `livemark build` even though your livereload server is running (currently it's a limitation of the livereload server -- it doesn't update styles automatically).
 
 ### Deploying the Project
 
